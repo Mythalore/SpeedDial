@@ -35,7 +35,6 @@ public class carMovement : MonoBehaviour {
 
         }
         powerInput = Input.GetAxis("P1Acc") * speed_modifier;
-        print(powerInput);
         turnInput = Input.GetAxis("Horizontal") * turn_modifier;
 
         if (powerInput < threshold)
