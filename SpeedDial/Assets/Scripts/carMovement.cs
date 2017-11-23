@@ -28,16 +28,14 @@ public class carMovement : MonoBehaviour {
         Vector3 down = -Vector3.up;
         RaycastHit hit;
         bool grounded = false;
+
         if(Physics.Raycast(transform.position, down, out hit, player))
         {
             grounded = true;
 
         }
-
-        print(hit.transform.gameObject);
-
-
-        powerInput = Input.GetAxis("Vertical") * speed_modifier;
+        powerInput = Input.GetAxis("P1Acc") * speed_modifier;
+        print(powerInput);
         turnInput = Input.GetAxis("Horizontal") * turn_modifier;
 
         if (powerInput < threshold)

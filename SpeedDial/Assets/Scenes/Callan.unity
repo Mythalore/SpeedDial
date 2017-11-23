@@ -264,6 +264,11 @@ Prefab:
       propertyPath: m_LocalPosition.z
       value: -0.149
       objectReference: {fileID: 0}
+    - target: {fileID: 114231403705341320, guid: 1cfd04112770ea94d97f4f17a81f2352,
+        type: 2}
+      propertyPath: turn_modifier
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 54027027321446298, guid: 1cfd04112770ea94d97f4f17a81f2352, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 1cfd04112770ea94d97f4f17a81f2352, type: 2}
