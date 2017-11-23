@@ -8,10 +8,10 @@ public class carMovement : MonoBehaviour {
     public float turn_modifier = 10;
     private float powerInput;
     private float turnInput;
-    private Rigidbody carRigidbody;
+    public Rigidbody carRigidbody;
     public float threshold = 0;
     public float dist_to_ground = 0.5f;
-
+    private LayerMask player = 8;
     // Use this for initialization
     void Start () {
         carRigidbody = GetComponent<Rigidbody>();
@@ -26,7 +26,17 @@ public class carMovement : MonoBehaviour {
     void MoveCar()
     {
         Vector3 down = -Vector3.up;
-     
+        RaycastHit hit;
+        bool grounded = false;
+        if(Physics.Raycast(transform.position, down, out hit, player))
+        {
+            grounded = true;
+
+        }
+
+        print(hit.transform.gameObject);
+
+
         powerInput = Input.GetAxis("Vertical") * speed_modifier;
         turnInput = Input.GetAxis("Horizontal") * turn_modifier;
 
@@ -35,7 +45,13 @@ public class carMovement : MonoBehaviour {
             turnInput *= 0.1f;
         }
 
-        carRigidbody.AddRelativeForce(0f, 0f, powerInput);
-        carRigidbody.AddRelativeTorque(0f, turnInput, 0f);
+        if (grounded)
+        {
+            carRigidbody.AddRelativeForce(0f, 0f, powerInput);
+        }
+
+            carRigidbody.AddRelativeTorque(0f, turnInput, 0f);
+
+
     }
 }
