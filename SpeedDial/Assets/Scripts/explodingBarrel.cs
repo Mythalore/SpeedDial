@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class explodingBarrel : MonoBehaviour {
     private Rigidbody otherRig;
+	public ParticleSystem explosion;
+
     public float explode_force = 10.0f;
 
 	// Use this for initialization
 	void Start () {
-		
+		explosion = gameObject.GetComponentInChildren<ParticleSystem> ();
 	}
 	
 	// Update is called once per frame
@@ -25,8 +27,18 @@ public class explodingBarrel : MonoBehaviour {
             dir = -dir.normalized;
             otherRig = col.gameObject.GetComponent < Rigidbody >();
             otherRig.AddForce(dir*explode_force, ForceMode.Impulse);
-            //otherRig.AddForceAtPosition(force_direction * explode_force, col.ClosestPoint(transform.position));
+			StartCoroutine(Explode ());
         }
 
     }
+
+
+	IEnumerator Explode()
+	{
+		print ("exploding");
+		explosion.Play ();
+		//explosion.enabled = true;
+		yield return new WaitForSeconds (2);
+		Destroy (gameObject);
+	}
 }
