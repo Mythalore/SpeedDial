@@ -13,4 +13,14 @@ public class carMovement : MonoBehaviour {
 	void Update () {
 		
 	}
+
+
+    void MoveCar()
+    {
+        //if(grounded)
+        //apply drag
+        //else
+        //thrust *= 0.1
+        //turnvalue *= 0.1
+    }
 }
