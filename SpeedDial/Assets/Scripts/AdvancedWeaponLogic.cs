@@ -26,6 +26,8 @@ public class AdvancedWeaponLogic : MonoBehaviour {
     public WeaponState weaponState;
 	// Use this for initialization
 	void Start () {
+        weaponUses = 0;
+        weaponDamage = 0;
         attachState = AttachState.NoWeaponAttached;
         weaponState = WeaponState.Idle;
         timer = Time.time;
@@ -33,6 +35,10 @@ public class AdvancedWeaponLogic : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if (attachState == AttachState.WeaponAttached)
+        {
+            LookAttarget();
+        }
 		if (Input.GetButton("AdvFire1") && attachState == AttachState.WeaponAttached)
         {
             timer += Time.deltaTime;
@@ -68,5 +74,8 @@ public class AdvancedWeaponLogic : MonoBehaviour {
         attachState = AttachState.NoWeaponAttached;
         Destroy(gameObject.transform.Find(AttachedWeaponName).gameObject);
     }
+    private void LookAttarget()
+    {
 
+    }
 }
