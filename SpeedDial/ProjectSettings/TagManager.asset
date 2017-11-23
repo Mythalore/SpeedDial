@@ -8,6 +8,7 @@ TagManager:
   - PlayerManager
   - Player1
   - Ground
+  - Barrel
   layers:
   - Default
   - TransparentFX

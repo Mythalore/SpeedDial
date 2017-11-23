@@ -333,6 +333,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4feab4340c092344380f47541eb92b70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosion: {fileID: 0}
   explode_force: 10
 --- !u!1001 &1028225027
 Prefab:
@@ -402,6 +403,11 @@ Prefab:
     - target: {fileID: 1215470466994246, guid: 1cfd04112770ea94d97f4f17a81f2352, type: 2}
       propertyPath: m_TagString
       value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 114954758625223868, guid: 1cfd04112770ea94d97f4f17a81f2352,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 54027027321446298, guid: 1cfd04112770ea94d97f4f17a81f2352, type: 2}

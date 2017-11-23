@@ -9,46 +9,47 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1341477523030646}
+  m_RootGameObject: {fileID: 1316733498885596}
   m_IsPrefabParent: 1
---- !u!1 &1341477523030646
+--- !u!1 &1316733498885596
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4919542760164188}
-  - component: {fileID: 33406986667423456}
-  - component: {fileID: 136521879995290740}
-  - component: {fileID: 23653066212514938}
-  - component: {fileID: 114423963336034132}
+  - component: {fileID: 4958859078950970}
+  - component: {fileID: 33540899887757274}
+  - component: {fileID: 65445134577977578}
+  - component: {fileID: 23007935023776686}
+  - component: {fileID: 114855324985062780}
+  - component: {fileID: 54428488228867994}
   m_Layer: 0
-  m_Name: Barrel
-  m_TagString: Barrel
+  m_Name: Bullet
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4919542760164188
+--- !u!4 &4958859078950970
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1341477523030646}
+  m_GameObject: {fileID: 1316733498885596}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.88, y: 0.442, z: 4.483}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalPosition: {x: 2.17, y: 0.659, z: 0}
+  m_LocalScale: {x: 0.084633276, y: 0.030068945, z: 0.034804117}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23653066212514938
+--- !u!23 &23007935023776686
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1341477523030646}
+  m_GameObject: {fileID: 1316733498885596}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -56,7 +57,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: f333c5125207d854f89825a957a23e8f, type: 2}
+  - {fileID: 2100000, guid: 1c59f7a583471ac48b15e6ca3d4759fd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -75,36 +76,48 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33406986667423456
+--- !u!33 &33540899887757274
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1341477523030646}
-  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &114423963336034132
+  m_GameObject: {fileID: 1316733498885596}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &54428488228867994
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1316733498885596}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &65445134577977578
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1316733498885596}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114855324985062780
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1341477523030646}
+  m_GameObject: {fileID: 1316733498885596}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4feab4340c092344380f47541eb92b70, type: 3}
+  m_Script: {fileID: 11500000, guid: 3b7890226b63afd4cb3978f6b69061e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosion: {fileID: 0}
-  explode_force: 11.5
---- !u!136 &136521879995290740
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1341477523030646}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
