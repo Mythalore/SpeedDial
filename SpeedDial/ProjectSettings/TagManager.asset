@@ -9,6 +9,10 @@ TagManager:
   - Player1
   - Ground
   - Barrel
+  - Player2
+  - WeaponPoint
+  - Rocket
+  - Joust
   layers:
   - Default
   - TransparentFX
