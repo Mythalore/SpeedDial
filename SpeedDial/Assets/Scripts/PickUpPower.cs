@@ -22,6 +22,8 @@ public class PickUpPower : MonoBehaviour {
                 var pos = col.transform.Find("AttachmentPoint");
                 transform.position = pos.position;
                 transform.parent = pos;
+                //Quaternion rot = pos.rotation;
+                transform.localRotation = new Quaternion(transform.rotation.x, pos.localRotation.z, pos.localRotation.z, pos.localRotation.w);
                 pos.GetComponent<AdvancedWeaponLogic>().AttachedWeapon(gameObject.tag);
             }
             

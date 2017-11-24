@@ -76,7 +76,7 @@ GameObject:
   - component: {fileID: 114693406632874496}
   - component: {fileID: 136440703766357358}
   m_Layer: 0
-  m_Name: Joust
+  m_Name: Jousting Pole
   m_TagString: Joust
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
