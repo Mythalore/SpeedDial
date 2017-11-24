@@ -8,6 +8,8 @@ public class AdvancedWeaponLogic : MonoBehaviour {
     private float timer = 1.0f;
     private float timeBetweenShots = 1.0f;
     public GameObject rocket;
+    public GameObject Laser;
+    public GameObject JoustPole;
     private string AttachedWeaponName;
     public enum AttachState
     {
@@ -39,24 +41,45 @@ public class AdvancedWeaponLogic : MonoBehaviour {
         {
             LookAttarget();
         }
-		if (Input.GetButton("AdvFire1") && attachState == AttachState.WeaponAttached)
+        if (Input.GetButton("AdvFire1") && attachState == AttachState.WeaponAttached)
         {
-            timer += Time.deltaTime;
-            if (timer >= timeBetweenShots)
+            if (AttachedWeaponName != "Laser")
             {
-                timer = 0.0f;
-                if (AttachedWeaponName == "Rocket")
+
+                timer += Time.deltaTime;
+                if (timer >= timeBetweenShots)
                 {
-                    var newBullet = Instantiate(rocket, gameObject.transform.position, this.transform.rotation);
-                    newBullet.transform.parent = gameObject.transform.parent;
-                    weaponUses--;
+                    timer = 0.0f;
+                    if (AttachedWeaponName == "Rocket")
+                    {
+                        var newBullet = Instantiate(rocket, gameObject.transform.position, this.transform.rotation);
+                        newBullet.transform.parent = gameObject.transform.parent;
+                        weaponUses--;
+                    }
+                    else if(AttachedWeaponName == "Joust")
+                    {
+                        var newBullet = Instantiate(JoustPole, gameObject.transform.position, this.transform.rotation);
+                        newBullet.transform.parent = gameObject.transform.parent;
+                        weaponUses--;
+                    }
+                    if (weaponUses == 0)
+                    {
+                        removeWeapon();
+                    }
                 }
-                if (weaponUses == 0)
+
+            }
+            else
+            {
+                //Laser logic
+                var newBullet = Instantiate(Laser, gameObject.transform.position, this.transform.rotation);
+                newBullet.transform.parent = gameObject.transform.parent;
+                weaponUses--;
+                if(weaponUses <= 0)
                 {
                     removeWeapon();
                 }
             }
-
         }
 	}
     public void AttachedWeapon(string weaponType)
@@ -68,6 +91,19 @@ public class AdvancedWeaponLogic : MonoBehaviour {
             weaponUses = 3;
             weaponDamage = 20;
         }
+        else if(weaponType == "Joust")
+        {
+            AttachedWeaponName = "Joust";
+            weaponUses = 1;
+            weaponDamage = 95;
+        }
+        else if(weaponType == "Laser")
+        {
+            AttachedWeaponName = "Laser";
+            weaponUses = 50;
+            weaponDamage = 2;
+        }
+        
     }
     private void removeWeapon()
     {
