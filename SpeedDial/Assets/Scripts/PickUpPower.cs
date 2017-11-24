@@ -14,13 +14,17 @@ public class PickUpPower : MonoBehaviour {
 	}
     void OnTriggerEnter(Collider col)
     {
-        if (col.gameObject.CompareTag("Player1") && col.gameObject.GetComponentInChildren<AdvancedWeaponLogic>().attachState == AdvancedWeaponLogic.AttachState.NoWeaponAttached)
+        if (col.gameObject.CompareTag("Player1") || col.gameObject.CompareTag("Player2") || col.gameObject.CompareTag("Player3") || col.gameObject.CompareTag("Player4"))
         {
-            transform.parent = col.transform;
-            var pos = col.transform.Find("AttachmentPoint");
-            transform.position = pos.position;
-            transform.parent = pos;
-            pos.GetComponent<AdvancedWeaponLogic>().AttachedWeapon(gameObject.tag);
+            if(col.gameObject.GetComponentInChildren<AdvancedWeaponLogic>().attachState == AdvancedWeaponLogic.AttachState.NoWeaponAttached)
+            {
+                transform.parent = col.transform;
+                var pos = col.transform.Find("AttachmentPoint");
+                transform.position = pos.position;
+                transform.parent = pos;
+                pos.GetComponent<AdvancedWeaponLogic>().AttachedWeapon(gameObject.tag);
+            }
+            
         }
 
     }
