@@ -96,7 +96,7 @@ public class carMovement : MonoBehaviour {
 
 			if (time < 3) 
 			{
-				print ("SPEEEEEEEEED");
+				print ("SPEED");
 				speed_modifier = 30;
 			} 
 			else 
