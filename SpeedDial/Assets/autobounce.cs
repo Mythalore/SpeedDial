@@ -8,13 +8,32 @@ public class autobounce : MonoBehaviour {
     public bool grounded;
     public string direction_grounded = "";
     public float ray_distance = 1.5f;
+
+
+    private string right_bumper = "";
     // Use this for initialization
     void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
+        if (gameObject.tag == "Player1")
+        {
+            right_bumper = "P1RB";
+        }
+        if (gameObject.tag == "Player2")
+        {
+            right_bumper = "P2RB";
+        }
+        if (gameObject.tag == "Player3")
+        {
+            right_bumper = "P3RB";
+        }
+        if (gameObject.tag == "Player4")
+        {
+            right_bumper = "P4RB";
+        }
+
+    }
+
+    // Update is called once per frame
+    void Update () {
 		if(RaycastDown())
         {
             grounded = true;
@@ -25,7 +44,7 @@ public class autobounce : MonoBehaviour {
             StartCoroutine(flipTimer());
         }
 
-        if(Input.GetButtonDown("P1RB"))
+        if(Input.GetButtonDown(right_bumper))
         {
             StartCoroutine(flipTimer());
         }

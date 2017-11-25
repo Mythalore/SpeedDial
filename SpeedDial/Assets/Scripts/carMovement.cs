@@ -20,12 +20,46 @@ public class carMovement : MonoBehaviour {
 
 	public bool being_boosted = false;
 
+
+    private string power_string = "";
+    private string turn_string = "";
+    private string player_name = "";
+
     // Use this for initialization
     void Start () 
 	{
         carRigidbody = GetComponentInChildren<Rigidbody>();
 		default_speed = speed_modifier;
         autobounce = gameObject.GetComponent<autobounce>();
+
+        if(gameObject.tag == "Player1")
+        {
+            turn_string = "P1Turn";
+            power_string = "P1Acc";
+            player_name = "Player1";
+        }
+        if (gameObject.tag == "Player2")
+        {
+            turn_string = "P2Turn";
+            power_string = "P2Acc";
+            player_name = "Player2";
+        }
+        if (gameObject.tag == "Player3")
+        {
+            turn_string = "P3Turn";
+            power_string = "P3Acc";
+            player_name = "Player3";
+        }
+        if (gameObject.tag == "Player4")
+        {
+            turn_string = "P4Turn";
+            power_string = "P4Acc";
+            player_name = "Player4";
+        }
+
+
+
+
     }
 	
 	// Update is called once per frame
@@ -40,27 +74,27 @@ public class carMovement : MonoBehaviour {
     {
         
 
-		if(autobounce.grounded)
-        {
-            powerInput = Input.GetAxis("P1Acc") * speed_modifier;
-            turnInput = Input.GetAxis("Horizontal") * turn_modifier;
+	//	if(autobounce.grounded)
+    //    {
+            powerInput = Input.GetAxis(power_string) * speed_modifier;
+            turnInput = Input.GetAxis(turn_string) * turn_modifier;
 
-            if (powerInput < threshold)
-            {
-                turnInput *= 0.1f;
-            }
+            //if (powerInput < threshold)
+            //{
+            //    turnInput *= 0.1f;
+            //}
 
 		    if (!autobounce.grounded) 
 		    {
 			    powerInput *= 0.1f;
 			    turnInput *= 0.1f;
 		    }
-        
 
+            print(turnInput);
             carRigidbody.AddRelativeForce(0f, 0f, powerInput, ForceMode.Acceleration);
             carRigidbody.AddRelativeTorque(0f, turnInput, 0f);
 
-        }
+     //   }
 
 
     }
@@ -92,12 +126,12 @@ public class carMovement : MonoBehaviour {
 
 			if (time < 3) 
 			{
-				print ("SPEED");
+				//print ("SPEED");
 				speed_modifier = 30;
 			} 
 			else 
 			{
-				print ("finished");
+				//print ("finished");
 				speed_modifier = default_speed;
 				time = 0;
 				being_boosted = false;
