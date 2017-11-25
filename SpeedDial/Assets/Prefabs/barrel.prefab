@@ -223,7 +223,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosion: {fileID: 198506211288441844}
   brokenBarrel: {fileID: 100000, guid: 216194f9826b88045bb7418e3c0de9d1, type: 3}
-  explode_force: 30
+  explode_force: 20
 --- !u!198 &198506211288441844
 ParticleSystem:
   m_ObjectHideFlags: 1

@@ -15,6 +15,7 @@ public class carMovement : MonoBehaviour {
     private LayerMask player = 8;
 	private float time = 0.0f;
 	private float default_speed = 0;
+    private autobounce autobounce;
 	bool grounded = false;
 
 	public bool being_boosted = false;
@@ -24,6 +25,7 @@ public class carMovement : MonoBehaviour {
 	{
         carRigidbody = GetComponentInChildren<Rigidbody>();
 		default_speed = speed_modifier;
+        autobounce = gameObject.GetComponent<autobounce>();
     }
 	
 	// Update is called once per frame
@@ -37,56 +39,50 @@ public class carMovement : MonoBehaviour {
     void MoveCar()
     {
         
-        RaycastHit hit;
 
-		//if (Physics.Raycast (transform.position, -Vector3.up, out hit, dist_to_ground, player)) 
-		//{
-		//	grounded = true;
-		//} 
-		//else 
-		//{
-		//	grounded = false;
-		//}
-
-        powerInput = Input.GetAxis("P1Acc") * speed_modifier;
-		//powerInput = Input.GetAxis ("Vertical") * speed_modifier;
-        turnInput = Input.GetAxis("Horizontal") * turn_modifier;
-
-        if (powerInput < threshold)
+		if(autobounce.grounded)
         {
-            turnInput *= 0.1f;
-        }
+            powerInput = Input.GetAxis("P1Acc") * speed_modifier;
+            turnInput = Input.GetAxis("Horizontal") * turn_modifier;
 
-		if (!grounded) 
-		{
-			powerInput *= 0.1f;
-			turnInput *= 0.1f;
-		}
+            if (powerInput < threshold)
+            {
+                turnInput *= 0.1f;
+            }
+
+		    if (!autobounce.grounded) 
+		    {
+			    powerInput *= 0.1f;
+			    turnInput *= 0.1f;
+		    }
         
 
-        carRigidbody.AddRelativeForce(0f, 0f, powerInput);
-        carRigidbody.AddRelativeTorque(0f, turnInput, 0f);
+            carRigidbody.AddRelativeForce(0f, 0f, powerInput, ForceMode.Acceleration);
+            carRigidbody.AddRelativeTorque(0f, turnInput, 0f);
+
+        }
+
 
     }
 
-	void OnCollisionEnter(Collision col)
-	{
-		if(col.gameObject.CompareTag("Ground"))
-		{
-			grounded = true;
-			print(":)");
-		}
-	}
+	//void OnCollisionEnter(Collision col)
+	//{
+	//	if(col.gameObject.CompareTag("Ground"))
+	//	{
+	//		grounded = true;
+	//		print(":)");
+	//	}
+	//}
 
-	void OnCollisionExit(Collision col)
-	{
-		if(col.gameObject.CompareTag("Ground"))
-		{
-			grounded = false;
-			print(":(");
+	//void OnCollisionExit(Collision col)
+	//{
+	//	if(col.gameObject.CompareTag("Ground"))
+	//	{
+	//		grounded = false;
+	//		print(":(");
 
-		}
-	}
+	//	}
+	//}
 		
 	public void AddBoost()
 	{

@@ -6,7 +6,7 @@ public class TimedExplosion : MonoBehaviour
 {
 	public ParticleSystem explosion;
 
-    public float explode_force = 10.0f;
+    public float explode_force = 15.0f;
 
     private Rigidbody otherRig;
     private AudioSource source;
@@ -52,9 +52,9 @@ public class TimedExplosion : MonoBehaviour
 	{
 		print ("exploding");
         source.Play();        
-		yield return new WaitForSeconds (3.5f);
-        ExplodePlayers();
+		yield return new WaitForSeconds (3.3f);
         explosion.Play ();
+        ExplodePlayers();
 		Destroy (gameObject);
 	}
 
@@ -65,7 +65,7 @@ public class TimedExplosion : MonoBehaviour
         {
             print(player + " in range. applying force.");
             Vector3 dir = player.transform.position - transform.position;
-            dir = -dir.normalized;
+            dir = dir.normalized;
             otherRig = player.gameObject.GetComponent<Rigidbody>();
             otherRig.AddForce(dir * explode_force, ForceMode.Impulse);
             //DO DAMAGE
