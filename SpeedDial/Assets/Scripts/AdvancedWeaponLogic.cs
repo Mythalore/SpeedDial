@@ -12,6 +12,8 @@ public class AdvancedWeaponLogic : MonoBehaviour {
     public GameObject JoustPoleObj;
     private string AttachedWeaponName;
     private Weapon wpnMan;
+    private WeaponTargeting WpnTar;
+    private LineRenderer line;
     public enum AttachState
     {
         Idle,
@@ -29,6 +31,7 @@ public class AdvancedWeaponLogic : MonoBehaviour {
     public WeaponState weaponState;
 	// Use this for initialization
 	void Start () {
+        WpnTar = gameObject.transform.parent.transform.GetComponentInChildren<WeaponTargeting>();
         weaponUses = 0;
         weaponDamage = 0;
         timeBetweenShots = 0.0f;
@@ -36,7 +39,9 @@ public class AdvancedWeaponLogic : MonoBehaviour {
         weaponState = WeaponState.Idle;
         timer = Time.time;
         wpnMan = gameObject.GetComponent<Weapon>();
-	}
+        line = GetComponent<LineRenderer>();
+        line.positionCount = 2;
+    }
 
     // Update is called once per frame
     void Update()
@@ -54,6 +59,7 @@ public class AdvancedWeaponLogic : MonoBehaviour {
                 if (AttachedWeaponName == "Rocket")
                 {
                     var newBullet = Instantiate(rocketObj, gameObject.transform.position, gameObject.transform.rotation);
+                    newBullet.GetComponent<AdvProjLogic>().setTarget(WpnTar.closestPlayer);
                     newBullet.transform.parent = gameObject.transform.parent;
                     weaponUses--;
                 }
@@ -61,12 +67,14 @@ public class AdvancedWeaponLogic : MonoBehaviour {
                 {
                     var newBullet = Instantiate(JoustPoleObj, gameObject.transform.position, gameObject.transform.rotation);
                     newBullet.transform.parent = gameObject.transform.parent;
+                    newBullet.GetComponent<AdvProjLogic>().setTarget(WpnTar.closestPlayer);
                     weaponUses--;
                 }
                 else if (AttachedWeaponName == "Laser")
                 {
                     var newBullet = Instantiate(LaserObj, gameObject.transform.position, gameObject.transform.rotation);
                     newBullet.transform.parent = gameObject.transform.parent;
+                    newBullet.GetComponent<AdvProjLogic>().setTarget(WpnTar.closestPlayer);
                     weaponUses--;
                 }
                 if (weaponUses == 0)
@@ -114,11 +122,20 @@ public class AdvancedWeaponLogic : MonoBehaviour {
         attachState = AttachState.NoWeaponAttached;
         foreach (Transform child in transform)
         {
-            Destroy(child.gameObject);
+                Destroy(child.gameObject);
         }
     }
     private void LookAttarget()
     {
-
+        if (WpnTar.closestPlayer != Vector3.zero)
+        {
+            line.SetPosition(0, transform.position);
+            line.SetPosition(1, WpnTar.closestPlayer);
+        }
+        else
+        {
+            line.SetPosition(0, Vector3.zero);
+            line.SetPosition(1, Vector3.zero);
+        }
     }
 }

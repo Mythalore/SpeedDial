@@ -74,8 +74,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4816816250779234}
   - component: {fileID: 136955590209529798}
-  - component: {fileID: 114297232938848712}
   - component: {fileID: 54023473865632774}
+  - component: {fileID: 114351992474383216}
   m_Layer: 0
   m_Name: RocketWeapon
   m_TagString: Untagged
@@ -531,7 +531,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114297232938848712
+--- !u!114 &114351992474383216
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -539,7 +539,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1411627295443562}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b7890226b63afd4cb3978f6b69061e2, type: 3}
+  m_Script: {fileID: 11500000, guid: 597cdfaaf082a3b439f3ffe8c652da6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!136 &136148798973952362

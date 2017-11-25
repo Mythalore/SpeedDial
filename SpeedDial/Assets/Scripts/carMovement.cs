@@ -79,18 +79,18 @@ public class carMovement : MonoBehaviour {
             powerInput = Input.GetAxis(power_string) * speed_modifier;
             turnInput = Input.GetAxis(turn_string) * turn_modifier;
 
-            //if (powerInput < threshold)
-            //{
-            //    turnInput *= 0.1f;
-            //}
+        //if (powerInput < threshold)
+        //{
+        //    turnInput *= 0.1f;
+        //}
 
-		    if (!autobounce.grounded) 
-		    {
-			    powerInput *= 0.1f;
-			    turnInput *= 0.1f;
-		    }
+        //if (!autobounce.grounded)
+        //{
+        //    powerInput *= 0.1f;
+        //    turnInput *= 0.1f;
+        //}
 
-            print(turnInput);
+        //print(turnInput);
             carRigidbody.AddRelativeForce(0f, 0f, powerInput, ForceMode.Acceleration);
             carRigidbody.AddRelativeTorque(0f, turnInput, 0f);
 
