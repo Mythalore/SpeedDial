@@ -42,6 +42,7 @@ public class autobounce : MonoBehaviour {
         else
         {
             grounded = false;
+            print("starting timer...");
             StartCoroutine(flipTimer());
         }
 
@@ -69,19 +70,24 @@ public class autobounce : MonoBehaviour {
         }
         else
         {
-            print("debug flip");
            // flipCar();
         }
     }
 
     bool RaycastDown()
     {
+        Vector3 local_down = -transform.up;
         RaycastHit hit;
         bool return_value = true;
-        Ray ray = new Ray(transform.position, -Vector3.up);
+        Ray ray = new Ray(gameObject.transform.position, local_down);
         if (Physics.Raycast(ray, out hit, ray_distance, player))
         {
-            Debug.DrawRay(transform.position, -Vector3.up, Color.red);
+            if (hit.collider.CompareTag("Ground"))
+            {
+                print("hitting ground");
+                Debug.DrawRay(gameObject.transform.position, local_down, Color.red);
+
+            }
             return_value = true;
         }
         else
