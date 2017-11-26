@@ -11,6 +11,7 @@ public class autobounce : MonoBehaviour {
 
 
     private string right_bumper = "";
+
     // Use this for initialization
     void Start () {
         if (gameObject.tag == "Player1")
@@ -55,16 +56,12 @@ public class autobounce : MonoBehaviour {
     {
         Vector3 desired_rotation = transform.rotation.eulerAngles;
         desired_rotation.z = 0;
-        gameObject.transform.SetPositionAndRotation((transform.position + new Vector3(0, 1, 0)), Quaternion.Euler(desired_rotation));
-
-
-       
+        gameObject.transform.SetPositionAndRotation((transform.position + new Vector3(0, 1, 0)), Quaternion.Euler(desired_rotation));      
 
     }
 
     IEnumerator flipTimer( )
     {
-        print("flipping car");
         yield return new WaitForSecondsRealtime(2.0f);
         if(!RaycastDown())
         {
@@ -81,15 +78,15 @@ public class autobounce : MonoBehaviour {
     {
         RaycastHit hit;
         bool return_value = true;
-        Ray ray = new Ray(transform.position, Vector3.up);
+        Ray ray = new Ray(transform.position, -Vector3.up);
         if (Physics.Raycast(ray, out hit, ray_distance, player))
         {
-            Debug.DrawRay(transform.position, Vector3.up, Color.red);
+            Debug.DrawRay(transform.position, -Vector3.up, Color.red);
             return_value = true;
         }
         else
         {
-            Debug.DrawRay(transform.position, Vector3.up, Color.blue);
+            Debug.DrawRay(transform.position, -Vector3.up, Color.blue);
             return_value = false;
         }
         return return_value;
@@ -102,10 +99,10 @@ public class autobounce : MonoBehaviour {
         if (Physics.Raycast(ray, out hit, ray_distance, player))
         {
             Debug.DrawRay(transform.position, Vector3.up, Color.red);
-            if (hit.transform.CompareTag("Ground"))
-            {
+            //if (hit.transform.CompareTag("Ground"))
+            //{
                 return_value = true;
-            }
+            //}
         }
         else
         {
