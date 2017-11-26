@@ -18,13 +18,14 @@ public class BulletLogic : MonoBehaviour {
     {
         if (col.gameObject.tag != transform.parent.tag)
         {
-            if (col.CompareTag("Ground") || col.CompareTag("Barrel"))
+            if (col.CompareTag("Ground") || col.CompareTag("Barrel") || col.CompareTag("Bumper"))
             {
                 Destroy(gameObject);
             }
             else
             {
                 //Damage that player
+                //get component player health -= advancedweaponLogicscript.weaponDamage?
             }
 
         }

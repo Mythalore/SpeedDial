@@ -13,6 +13,11 @@ TagManager:
   - WeaponPoint
   - Rocket
   - Joust
+  - Laser
+  - Player3
+  - Player4
+  - Bumper
+  - targetFinder
   layers:
   - Default
   - TransparentFX

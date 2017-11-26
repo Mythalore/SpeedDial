@@ -21,7 +21,7 @@ public class pinball : MonoBehaviour {
         if(col.gameObject.CompareTag("Player1"))
         {
             Vector3 dir = col.contacts[0].point - transform.position;
-            dir = -dir.normalized;
+            dir = dir.normalized;
             dir.y *= 0.5f;
             otherRig = col.gameObject.GetComponent < Rigidbody >();
             otherRig.AddForce(dir* bumper_force, ForceMode.Impulse);

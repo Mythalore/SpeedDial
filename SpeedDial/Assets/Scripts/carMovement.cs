@@ -15,15 +15,51 @@ public class carMovement : MonoBehaviour {
     private LayerMask player = 8;
 	private float time = 0.0f;
 	private float default_speed = 0;
+    private autobounce autobounce;
 	bool grounded = false;
 
 	public bool being_boosted = false;
+
+
+    private string power_string = "";
+    private string turn_string = "";
+    private string player_name = "";
 
     // Use this for initialization
     void Start () 
 	{
         carRigidbody = GetComponentInChildren<Rigidbody>();
 		default_speed = speed_modifier;
+        autobounce = gameObject.GetComponent<autobounce>();
+
+        if(gameObject.tag == "Player1")
+        {
+            turn_string = "P1Turn";
+            power_string = "P1Acc";
+            player_name = "Player1";
+        }
+        if (gameObject.tag == "Player2")
+        {
+            turn_string = "P2Turn";
+            power_string = "P2Acc";
+            player_name = "Player2";
+        }
+        if (gameObject.tag == "Player3")
+        {
+            turn_string = "P3Turn";
+            power_string = "P3Acc";
+            player_name = "Player3";
+        }
+        if (gameObject.tag == "Player4")
+        {
+            turn_string = "P4Turn";
+            power_string = "P4Acc";
+            player_name = "Player4";
+        }
+
+
+
+
     }
 	
 	// Update is called once per frame
@@ -37,56 +73,50 @@ public class carMovement : MonoBehaviour {
     void MoveCar()
     {
         
-        RaycastHit hit;
 
-		//if (Physics.Raycast (transform.position, -Vector3.up, out hit, dist_to_ground, player)) 
-		//{
-		//	grounded = true;
-		//} 
-		//else 
-		//{
-		//	grounded = false;
-		//}
+	//	if(autobounce.grounded)
+    //    {
+            powerInput = Input.GetAxis(power_string) * speed_modifier;
+            turnInput = Input.GetAxis(turn_string) * turn_modifier;
 
-        powerInput = Input.GetAxis("P1Acc") * speed_modifier;
-		//powerInput = Input.GetAxis ("Vertical") * speed_modifier;
-        turnInput = Input.GetAxis("Horizontal") * turn_modifier;
+        //if (powerInput < threshold)
+        //{
+        //    turnInput *= 0.1f;
+        //}
 
-        if (powerInput < threshold)
-        {
-            turnInput *= 0.1f;
-        }
+        //if (!autobounce.grounded)
+        //{
+        //    powerInput *= 0.1f;
+        //    turnInput *= 0.1f;
+        //}
 
-		if (!grounded) 
-		{
-			powerInput *= 0.1f;
-			turnInput *= 0.1f;
-		}
-        
+        //print(turnInput);
+            carRigidbody.AddRelativeForce(0f, 0f, powerInput, ForceMode.Acceleration);
+            carRigidbody.AddRelativeTorque(0f, turnInput, 0f);
 
-        carRigidbody.AddRelativeForce(0f, 0f, powerInput);
-        carRigidbody.AddRelativeTorque(0f, turnInput, 0f);
+     //   }
+
 
     }
 
-	void OnCollisionEnter(Collision col)
-	{
-		if(col.gameObject.CompareTag("Ground"))
-		{
-			grounded = true;
-			print(":)");
-		}
-	}
+	//void OnCollisionEnter(Collision col)
+	//{
+	//	if(col.gameObject.CompareTag("Ground"))
+	//	{
+	//		grounded = true;
+	//		print(":)");
+	//	}
+	//}
 
-	void OnCollisionExit(Collision col)
-	{
-		if(col.gameObject.CompareTag("Ground"))
-		{
-			grounded = false;
-			print(":(");
+	//void OnCollisionExit(Collision col)
+	//{
+	//	if(col.gameObject.CompareTag("Ground"))
+	//	{
+	//		grounded = false;
+	//		print(":(");
 
-		}
-	}
+	//	}
+	//}
 		
 	public void AddBoost()
 	{
@@ -96,12 +126,12 @@ public class carMovement : MonoBehaviour {
 
 			if (time < 3) 
 			{
-				print ("SPEED");
+				//print ("SPEED");
 				speed_modifier = 30;
 			} 
 			else 
 			{
-				print ("finished");
+				//print ("finished");
 				speed_modifier = default_speed;
 				time = 0;
 				being_boosted = false;

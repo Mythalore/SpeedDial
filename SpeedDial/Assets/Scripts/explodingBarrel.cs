@@ -8,11 +8,12 @@ public class explodingBarrel : MonoBehaviour {
     public GameObject brokenBarrel;
     private AudioSource source;
     public float explode_force = 10.0f;
-
+    private Mesh mesh;
 	// Use this for initialization
 	void Start () {
 		explosion = gameObject.GetComponentInChildren<ParticleSystem> ();
         source = gameObject.GetComponent<AudioSource>();
+        mesh = gameObject.GetComponent<Mesh>();
 	}
 	
 	// Update is called once per frame
@@ -26,7 +27,7 @@ public class explodingBarrel : MonoBehaviour {
         if(col.gameObject.CompareTag("Player1"))
         {
             Vector3 dir = col.contacts[0].point - transform.position;
-            dir = -dir.normalized;
+            dir = dir.normalized;
             otherRig = col.gameObject.GetComponent < Rigidbody >();
             otherRig.AddForce(dir*explode_force, ForceMode.Impulse);
 			StartCoroutine(Explode ());
@@ -41,6 +42,7 @@ public class explodingBarrel : MonoBehaviour {
         //DO DAMAGE
 		explosion.Play ();
         source.Play();
+        Destroy(mesh);
         if(brokenBarrel.transform.position != transform.position)
         {
             brokenBarrel.transform.SetPositionAndRotation(gameObject.transform.position, gameObject.transform.rotation);
