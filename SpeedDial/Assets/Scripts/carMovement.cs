@@ -28,7 +28,7 @@ public class carMovement : MonoBehaviour {
     // Use this for initialization
     void Start () 
 	{
-        carRigidbody = GetComponentInChildren<Rigidbody>();
+        carRigidbody = GetComponent<Rigidbody>();
 		default_speed = speed_modifier;
         autobounce = gameObject.GetComponent<autobounce>();
 
@@ -56,10 +56,6 @@ public class carMovement : MonoBehaviour {
             power_string = "P4Acc";
             player_name = "Player4";
         }
-
-
-
-
     }
 	
 	// Update is called once per frame
@@ -72,52 +68,17 @@ public class carMovement : MonoBehaviour {
 
     void MoveCar()
     {
-        
-
-	//	if(autobounce.grounded)
-    //    {
+        if (autobounce.grounded)
+        {
             powerInput = Input.GetAxis(power_string) * speed_modifier;
-            turnInput = Input.GetAxis(turn_string) * turn_modifier;
+        }
+        turnInput = Input.GetAxis(turn_string) * turn_modifier;
 
-        //if (powerInput < threshold)
-        //{
-        //    turnInput *= 0.1f;
-        //}
-
-        //if (!autobounce.grounded)
-        //{
-        //    powerInput *= 0.1f;
-        //    turnInput *= 0.1f;
-        //}
-
-        //print(turnInput);
-            carRigidbody.AddRelativeForce(0f, 0f, powerInput, ForceMode.Acceleration);
-            carRigidbody.AddRelativeTorque(0f, turnInput, 0f);
-
-     //   }
-
-
+        carRigidbody.AddRelativeForce(0f, 0f, powerInput, ForceMode.Acceleration);
+        carRigidbody.AddRelativeTorque(0f, turnInput, 0f);
     }
 
-	//void OnCollisionEnter(Collision col)
-	//{
-	//	if(col.gameObject.CompareTag("Ground"))
-	//	{
-	//		grounded = true;
-	//		print(":)");
-	//	}
-	//}
 
-	//void OnCollisionExit(Collision col)
-	//{
-	//	if(col.gameObject.CompareTag("Ground"))
-	//	{
-	//		grounded = false;
-	//		print(":(");
-
-	//	}
-	//}
-		
 	public void AddBoost()
 	{
 		if (being_boosted) 
