@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4990329356138976}
   - component: {fileID: 198280390401121852}
   - component: {fileID: 199670109221782426}
-  - component: {fileID: 114300900424494586}
   m_Layer: 0
   m_Name: Smoke_Explosion_Loop_01
   m_TagString: Untagged
@@ -36,24 +35,12 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1883998157174950}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.29, y: 0.3, z: 0}
+  m_LocalPosition: {x: 0, y: 0.3, z: -3.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114300900424494586
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1883998157174950}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34fb743a6c7512e41b423de94d95f4e6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 2
 --- !u!198 &198280390401121852
 ParticleSystem:
   m_ObjectHideFlags: 1

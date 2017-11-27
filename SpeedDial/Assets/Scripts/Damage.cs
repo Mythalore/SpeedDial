@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Script for recieving damage
+/// NOTE : Currently particle system is being set active each frame, this needs to change
+/// </summary>
 public class Damage : MonoBehaviour
 {
 
@@ -10,16 +14,18 @@ public class Damage : MonoBehaviour
     public GameObject smoke;
 
     private autobounce _ab;
-    private ParticleSystem explosion;
+    public ParticleSystem explosion;
     // Use this for initialization
     void Start () {
-        explosion = GetComponentInChildren<ParticleSystem>();
+        _ab = gameObject.GetComponent<autobounce>();
         //huge_Fire = GetComponentInChildren<GameObject>(small_Fire);
+        huge_Fire.SetActive(false);
+        smoke.SetActive(false);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+        HealthIndicator();
 	}
 
 
@@ -36,8 +42,9 @@ public class Damage : MonoBehaviour
         }
         if (health > 50 && health <= 75)
         {
+            
             smoke.SetActive(true);
-            huge_Fire.transform.localScale = new Vector3(1, 1, 1);
+            //smoke.transform.localScale = new Vector3(1, 1, 1);
         }
         if (health > 25 && health <= 50)
         {
@@ -53,7 +60,7 @@ public class Damage : MonoBehaviour
         {
             huge_Fire.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
         }
-        if(health == 0)
+        if(health <= 0)
         {
             DestroyCar();               
         }
@@ -61,25 +68,29 @@ public class Damage : MonoBehaviour
 
     void DestroyCar()
     {
-        explosion.Play();
+        //explosion.Play();
+        
+        _ab.flipCar(_ab.start_pos);
+        huge_Fire.SetActive(false);
+        smoke.SetActive(false);
         health = 100;
-        _ab.flipTimer(_ab.start_pos);
     }
 
-    void OnCollisionEnter(Collision col)
+    void OnTriggerEnter(Collider col)
     {
-        print("entered");
-        switch (col.gameObject.tag)
-        {
-            case "BasicBullet":
-                print("taking 2 damage");
-                TakeDamage(2);
-                break;
-            case "SpecialWeapon":
-                TakeDamage(40);
-                break;
-            default:
-                break;
-        }
+
+        //print("entered");
+        //switch (col.gameObject.tag)
+        //{
+        //    case "BasicBullet":
+        //        print("taking 2 damage");
+        //        TakeDamage(2);
+        //        break;
+        //    case "SpecialWeapon":
+        //        TakeDamage(40);
+        //        break;
+        //    default:
+        //        break;
+        //}
     }
 }

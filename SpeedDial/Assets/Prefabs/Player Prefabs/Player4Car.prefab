@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 23767688608985788}
   m_Layer: 0
   m_Name: default
-  m_TagString: Untagged
+  m_TagString: Ignore
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -58,7 +58,7 @@ GameObject:
   - component: {fileID: 92731407320843416}
   m_Layer: 0
   m_Name: P4Camera
-  m_TagString: Untagged
+  m_TagString: Ignore
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 120310193636955268}
   m_Layer: 0
   m_Name: AttachmentPoint
-  m_TagString: WeaponPoint
+  m_TagString: Ignore
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -111,7 +111,7 @@ GameObject:
   - component: {fileID: 114081996507608394}
   m_Layer: 0
   m_Name: BasicWeaponbarrel
-  m_TagString: Untagged
+  m_TagString: Ignore
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 4188279513500964}
   m_Layer: 0
   m_Name: car_Fin
-  m_TagString: Untagged
+  m_TagString: Ignore
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 135112547490852664}
   m_Layer: 0
   m_Name: FovForWeapons
-  m_TagString: Untagged
+  m_TagString: Ignore
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1067,6 +1067,7 @@ MonoBehaviour:
   health: 100
   huge_Fire: {fileID: 0}
   smoke: {fileID: 0}
+  explosion: {fileID: 0}
 --- !u!114 &114853240004948080
 MonoBehaviour:
   m_ObjectHideFlags: 1

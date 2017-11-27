@@ -16,18 +16,14 @@ public class BulletLogic : MonoBehaviour {
     }
     void OnTriggerEnter(Collider col)
     {
-        if (col.gameObject.tag != transform.parent.tag)
+        if (col.gameObject.tag != transform.parent.tag && col.gameObject.tag != "Ignore")
         {
-            if (col.CompareTag("Ground") || col.CompareTag("Barrel") || col.CompareTag("Bumper"))
+            if(col.gameObject.CompareTag("Player1") || col.gameObject.CompareTag("Player2")|| col.gameObject.CompareTag("Player3")|| col.gameObject.CompareTag("Player4"))
             {
-                Destroy(gameObject);
+                col.GetComponent<Damage>().TakeDamage(2);
+                print(col.gameObject.tag + " hit for 2");
             }
-            else
-            {
-                //Damage that player
-                //get component player health -= advancedweaponLogicscript.weaponDamage?
-            }
-
+            Destroy(gameObject);
         }
     }
 

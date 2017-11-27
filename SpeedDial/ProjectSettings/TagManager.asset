@@ -19,6 +19,7 @@ TagManager:
   - Bumper
   - targetFinder
   - BasicBullet
+  - Ignore
   layers:
   - Default
   - TransparentFX

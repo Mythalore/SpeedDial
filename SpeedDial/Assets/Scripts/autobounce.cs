@@ -58,16 +58,17 @@ public class autobounce : MonoBehaviour {
        
 	}
 
-    void flipCar(Vector3 _desiredPos)
+    public void flipCar(Vector3 _desiredPos)
     {
         Vector3 desired_rotation = transform.rotation.eulerAngles;
         
         desired_rotation.z = 0;
+        desired_rotation.x = 0;
         gameObject.transform.SetPositionAndRotation((_desiredPos + new Vector3(0, 1, 0)), Quaternion.Euler(desired_rotation));      
 
     }
 
-    public IEnumerator flipTimer(Vector3 _pos )
+    IEnumerator flipTimer(Vector3 _pos )
     {
         yield return new WaitForSecondsRealtime(3.0f);
         if(_pos != Vector3.zero)
@@ -81,7 +82,6 @@ public class autobounce : MonoBehaviour {
             {
                 flipCar(transform.position);
             }
-
         }
     }
 

@@ -88,7 +88,12 @@ public class carMovement : MonoBehaviour {
         turnInput = Input.GetAxis(turn_string) * turn_modifier;
 
         carRigidbody.AddRelativeForce(0f, 0f, powerInput, ForceMode.Acceleration);
-        carRigidbody.AddRelativeTorque(0f, turnInput, 0f);
+        carRigidbody.AddRelativeTorque(0f, turnInput, 0f, ForceMode.VelocityChange);
+    }
+
+    public void ResetForces()
+    {
+        //reset everything to 0? somehow?
     }
 
 
