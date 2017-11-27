@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerManagement : MonoBehaviour {
 
@@ -25,6 +26,7 @@ public class PlayerManagement : MonoBehaviour {
     public GameObject player2Spawn;
     public GameObject player3Spawn;
     public GameObject player4Spawn;
+    public Canvas canvas;
     
     // Use this for initialization
     void Start () {
@@ -33,7 +35,7 @@ public class PlayerManagement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+        canvas = FindObjectOfType<Canvas>();
         Scene scene = SceneManager.GetActiveScene();
         //Debug.Log(scene);
         if (scene.name == "Lobby")
@@ -126,12 +128,21 @@ public class PlayerManagement : MonoBehaviour {
         if(Input.GetButton("Tim's Level"))
         {
             Scene scene1 = SceneManager.GetActiveScene();
+            // Camera.SetActive(false);
+            // image.enabled = true;
+            Destroy(canvas);
             if (scene.name == "Lobby")
             {
                 if (playerCount >= 1)
                 {
                     SceneManager.LoadScene(2);
+                   
                 }
+
+            }
+            else
+            {
+                SceneManager.LoadScene(1);
             }
         }
 		
@@ -170,7 +181,7 @@ public class PlayerManagement : MonoBehaviour {
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         Scene scene1 = SceneManager.GetActiveScene();
-        if (scene.name != "Lobby" && scene.name != "Callan")
+        if (scene.name != "Lobby" && scene.name != "Menu")
         {
             player1Spawn = null;
             player2Spawn = null;

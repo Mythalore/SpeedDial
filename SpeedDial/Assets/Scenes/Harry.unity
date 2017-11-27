@@ -186,6 +186,7 @@ GameObject:
   - component: {fileID: 346765921}
   - component: {fileID: 346765923}
   - component: {fileID: 346765922}
+  - component: {fileID: 346765924}
   m_Layer: 5
   m_Name: Phone
   m_TagString: Untagged
@@ -209,7 +210,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -906}
+  m_AnchoredPosition: {x: 0, y: -902}
   m_SizeDelta: {x: 121, y: 218}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &346765922
@@ -245,6 +246,23 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 346765920}
+--- !u!95 &346765924
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 346765920}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9e35adb72c8639b45b1566737b89699f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &731181069
 GameObject:
   m_ObjectHideFlags: 0
@@ -647,6 +665,7 @@ MonoBehaviour:
   collectable: 0
   canvas: {fileID: 928377109}
   phone: {fileID: 346765922}
+  phoneanim: {fileID: 346765924}
   buttons:
   - {fileID: 802201764}
   - {fileID: 908881176}
