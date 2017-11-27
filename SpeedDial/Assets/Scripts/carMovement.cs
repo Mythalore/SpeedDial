@@ -74,7 +74,6 @@ public class carMovement : MonoBehaviour {
             for(int i = 0; i < skidTrails.Length; i++)
             {
                 skidTrails[i].SetActive(true);
-                print(i);
             }
         }
         else

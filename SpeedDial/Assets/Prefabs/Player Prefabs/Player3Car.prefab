@@ -27,7 +27,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1041297183336942
 GameObject:
   m_ObjectHideFlags: 0
@@ -61,7 +61,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1083777792549444
 GameObject:
   m_ObjectHideFlags: 0
@@ -130,6 +130,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1433078577030562
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4211395639817334}
+  - component: {fileID: 135331393507717674}
+  - component: {fileID: 114482332480342936}
+  m_Layer: 0
+  m_Name: FovForWeapons
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1575031473774890
 GameObject:
   m_ObjectHideFlags: 1
@@ -146,7 +163,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1718406267460310
 GameObject:
   m_ObjectHideFlags: 0
@@ -159,7 +176,7 @@ GameObject:
   - component: {fileID: 65637787827083202}
   - component: {fileID: 114490871851868270}
   - component: {fileID: 114820900094832938}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player3Car
   m_TagString: Player3
   m_Icon: {fileID: 0}
@@ -201,7 +218,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4052527274305410
 Transform:
   m_ObjectHideFlags: 1
@@ -244,6 +261,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4981001646584586}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4211395639817334
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1433078577030562}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 4, y: 4, z: 35.3112}
+  m_Children: []
+  m_Father: {fileID: 4981001646584586}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4231592588979154
 Transform:
@@ -339,6 +369,7 @@ Transform:
   - {fileID: 4846703928093858}
   - {fileID: 4106965569554074}
   - {fileID: 4460770890485426}
+  - {fileID: 4211395639817334}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -963,6 +994,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_PersistTime: 0
+--- !u!114 &114482332480342936
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1433078577030562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddb4cac3f31eef34c9e436fb53c6e578, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  view_radius: 7
+  view_angle: 200
+  acceptMask:
+    serializedVersion: 2
+    m_Bits: 256
+  playersInRadius: []
+  seenPlayersInRadius: []
+  closestPlayer: {x: 0, y: 0, z: 0}
 --- !u!114 &114490871851868270
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -996,9 +1046,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeBetweenShots: 0
-  rocketObj: {fileID: 0}
-  LaserObj: {fileID: 0}
-  JoustPoleObj: {fileID: 0}
+  rocketObj: {fileID: 1411627295443562, guid: bc7bd91066f7b3b4ea34023fcdfe9851, type: 2}
+  LaserObj: {fileID: 1778098451201392, guid: 7969348307e606442aec5e8608c24486, type: 2}
+  JoustPoleObj: {fileID: 1640969653520490, guid: 8dec288fcc332c14083e30881c0d0aca,
+    type: 2}
   attachState: 1
   weaponState: 0
 --- !u!114 &114660333796396220
@@ -1130,3 +1181,15 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1256964880324754}
   m_Enabled: 1
+--- !u!135 &135331393507717674
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1433078577030562}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}

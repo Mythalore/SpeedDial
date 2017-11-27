@@ -9,7 +9,7 @@ public class autobounce : MonoBehaviour {
     public float ray_distance = 1.5f;
     private bool return_value = true;
 
-    private Vector3 start_pos;
+    public Vector3 start_pos;
     private string right_bumper = "";
 
     private float max_distance;
@@ -67,7 +67,7 @@ public class autobounce : MonoBehaviour {
 
     }
 
-    IEnumerator flipTimer(Vector3 _pos )
+    public IEnumerator flipTimer(Vector3 _pos )
     {
         yield return new WaitForSecondsRealtime(3.0f);
         if(_pos != Vector3.zero)

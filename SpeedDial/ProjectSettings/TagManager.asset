@@ -18,6 +18,7 @@ TagManager:
   - Player4
   - Bumper
   - targetFinder
+  - BasicBullet
   layers:
   - Default
   - TransparentFX

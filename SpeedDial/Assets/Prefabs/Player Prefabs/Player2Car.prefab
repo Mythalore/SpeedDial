@@ -63,7 +63,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1464642980571160
 GameObject:
   m_ObjectHideFlags: 0
@@ -116,7 +116,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1700457382429456
 GameObject:
   m_ObjectHideFlags: 1
@@ -150,7 +150,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1820936816913152
 GameObject:
   m_ObjectHideFlags: 1
@@ -167,7 +167,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1876696707471358
 GameObject:
   m_ObjectHideFlags: 0
@@ -178,6 +178,23 @@ GameObject:
   - component: {fileID: 4489685294700406}
   m_Layer: 0
   m_Name: car_Fin
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1958517766831550
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4079051632826766}
+  - component: {fileID: 135638069371652188}
+  - component: {fileID: 114929780021036766}
+  m_Layer: 0
+  m_Name: FovForWeapons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -195,13 +212,26 @@ GameObject:
   - component: {fileID: 65727157421766778}
   - component: {fileID: 114324210812334788}
   - component: {fileID: 114501106711452186}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player2Car
   m_TagString: Player2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &4079051632826766
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1958517766831550}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 4, y: 4, z: 35.3112}
+  m_Children: []
+  m_Father: {fileID: 4142260967656450}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4093025430479890
 Transform:
   m_ObjectHideFlags: 1
@@ -230,6 +260,7 @@ Transform:
   - {fileID: 4734363614385634}
   - {fileID: 4093025430479890}
   - {fileID: 4489685294700406}
+  - {fileID: 4079051632826766}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -951,9 +982,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeBetweenShots: 0
-  rocketObj: {fileID: 0}
-  LaserObj: {fileID: 0}
-  JoustPoleObj: {fileID: 0}
+  rocketObj: {fileID: 1411627295443562, guid: bc7bd91066f7b3b4ea34023fcdfe9851, type: 2}
+  LaserObj: {fileID: 1778098451201392, guid: 7969348307e606442aec5e8608c24486, type: 2}
+  JoustPoleObj: {fileID: 1640969653520490, guid: 8dec288fcc332c14083e30881c0d0aca,
+    type: 2}
   attachState: 1
   weaponState: 0
 --- !u!114 &114109165307287288
@@ -1038,6 +1070,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_PersistTime: 0
+--- !u!114 &114929780021036766
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1958517766831550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddb4cac3f31eef34c9e436fb53c6e578, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  view_radius: 7
+  view_angle: 200
+  acceptMask:
+    serializedVersion: 2
+    m_Bits: 256
+  playersInRadius: []
+  seenPlayersInRadius: []
+  closestPlayer: {x: 0, y: 0, z: 0}
 --- !u!120 &120497366796982028
 LineRenderer:
   m_ObjectHideFlags: 1
@@ -1130,3 +1181,15 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1464642980571160}
   m_Enabled: 1
+--- !u!135 &135638069371652188
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1958517766831550}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}

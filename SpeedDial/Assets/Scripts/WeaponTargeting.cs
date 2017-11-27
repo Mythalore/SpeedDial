@@ -64,7 +64,7 @@ public class WeaponTargeting : MonoBehaviour {
             if (closestPlayer == Vector3.zero)
             {
                 closestPlayer = player.transform.position;
-                print(player.gameObject.name);
+                //print(player.gameObject.name);
             }
             //tempStore = player.transform.position;
             else if (Vector3.Distance(player.transform.position, gameObject.transform.position) <= Vector3.Distance(closestPlayer, gameObject.transform.position))
