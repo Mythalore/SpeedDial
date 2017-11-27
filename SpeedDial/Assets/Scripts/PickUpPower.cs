@@ -24,6 +24,8 @@ public class PickUpPower : MonoBehaviour {
                 transform.parent = pos;
                 //Quaternion rot = pos.rotation;
                 transform.localRotation = new Quaternion(transform.rotation.x, pos.localRotation.z, pos.localRotation.z, pos.localRotation.w);
+
+                //phone logic shit
                 pos.GetComponent<AdvancedWeaponLogic>().AttachedWeapon(gameObject.tag);
             }
             
