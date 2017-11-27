@@ -70,7 +70,7 @@ public class carMovement : MonoBehaviour {
     {
         if (autobounce.grounded)
         {
-            powerInput = Input.GetAxis(power_string) * speed_modifier;
+            powerInput = -Input.GetAxis(power_string) * speed_modifier;
             for(int i = 0; i < skidTrails.Length; i++)
             {
                 skidTrails[i].SetActive(true);

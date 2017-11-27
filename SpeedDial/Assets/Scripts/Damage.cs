@@ -10,18 +10,20 @@ public class Damage : MonoBehaviour
 {
 
     public int health = 100;
-    public GameObject huge_Fire;
+    public GameObject fire;
     public GameObject smoke;
+    public GameObject explosion;
 
     private autobounce _ab;
-    public ParticleSystem explosion;
     // Use this for initialization
     void Start () {
         _ab = gameObject.GetComponent<autobounce>();
         //huge_Fire = GetComponentInChildren<GameObject>(small_Fire);
-        huge_Fire.SetActive(false);
+        fire.SetActive(false);
         smoke.SetActive(false);
-	}
+        explosion.SetActive(false);
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -48,17 +50,17 @@ public class Damage : MonoBehaviour
         }
         if (health > 25 && health <= 50)
         {
-            huge_Fire.gameObject.SetActive(true);
+            fire.gameObject.SetActive(true);
 
         }
         if (health > 10 && health <= 25)
         {
-            huge_Fire.transform.localScale = new Vector3(1, 1, 1);
+            fire.transform.localScale = new Vector3(1, 1, 1);
 
         }
         if (health > 0 && health <= 10)
         {
-            huge_Fire.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
+            fire.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
         }
         if(health <= 0)
         {
@@ -68,12 +70,14 @@ public class Damage : MonoBehaviour
 
     void DestroyCar()
     {
-        //explosion.Play();
+        explosion.SetActive(true);
         
         _ab.flipCar(_ab.start_pos);
-        huge_Fire.SetActive(false);
+        fire.SetActive(false);
         smoke.SetActive(false);
         health = 100;
+        explosion.SetActive(false);
+
     }
 
     void OnTriggerEnter(Collider col)
