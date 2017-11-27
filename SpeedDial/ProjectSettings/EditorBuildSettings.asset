@@ -11,3 +11,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Lobby.unity
     guid: ec6d2e612c4ffa249b7eecd17edc999f
+  - enabled: 1
+    path: Assets/Scenes/SpawnTest.unity
+    guid: a474b0c78e5fc6543bdc0f7b51210f99

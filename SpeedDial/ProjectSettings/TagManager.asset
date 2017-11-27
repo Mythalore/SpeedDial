@@ -18,6 +18,10 @@ TagManager:
   - Player4
   - Bumper
   - targetFinder
+  - P1Spawn
+  - P2Spawn
+  - P3Spawn
+  - P4Spawn
   layers:
   - Default
   - TransparentFX
