@@ -657,8 +657,6 @@ MonoBehaviour:
   - {fileID: 1020030965}
   - {fileID: 842186329}
   - {fileID: 1038527588}
-  button_bool: 00000000
-  DPad_bool: 00000000
   seethrough: {r: 1, g: 0, b: 0, a: 0}
   highlighted: {r: 0.19301471, g: 0.61171407, b: 0.75, a: 1}
 --- !u!1 &1020030962
