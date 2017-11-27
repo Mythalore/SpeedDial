@@ -5,7 +5,7 @@ using UnityEngine;
 public class autobounce : MonoBehaviour {
 
     //public LayerMask player;
-    public bool grounded;
+    public bool grounded = false;
     public float ray_distance = 1.5f;
     private bool return_value = true;
 
@@ -48,10 +48,11 @@ public class autobounce : MonoBehaviour {
         
         if(RaycastLeft() || RaycastRight() || RaycastUp())
         {
-            StartCoroutine(flipTimer(transform.position));
+            StartCoroutine(flipTimer(Vector3.zero));
         }
-        if (Input.GetButtonDown(right_bumper))
+        if (Input.GetButtonDown(right_bumper) && Input.GetButtonDown("P1 A"))
         {
+            print("debug flip");
             StartCoroutine(flipTimer(start_pos));
         }
        
@@ -69,9 +70,18 @@ public class autobounce : MonoBehaviour {
     IEnumerator flipTimer(Vector3 _pos )
     {
         yield return new WaitForSecondsRealtime(3.0f);
-        if (RaycastLeft() || RaycastRight() || RaycastUp())
+        if(_pos != Vector3.zero)
         {
             flipCar(_pos);
+
+        }
+        else
+        {
+            if (RaycastLeft() || RaycastRight() || RaycastUp())
+            {
+                flipCar(transform.position);
+            }
+
         }
     }
 
