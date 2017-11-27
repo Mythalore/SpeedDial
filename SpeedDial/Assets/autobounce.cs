@@ -6,15 +6,17 @@ public class autobounce : MonoBehaviour {
 
     //public LayerMask player;
     public bool grounded;
-    public string direction_grounded = "";
     public float ray_distance = 1.5f;
     private bool return_value = true;
 
     private Vector3 start_pos;
     private string right_bumper = "";
 
+    private float max_distance;
+
     // Use this for initialization
     void Start () {
+        max_distance = gameObject.GetComponent<Collider>().bounds.size.y/2 + 0.1f;
         start_pos = transform.position;
         if (gameObject.tag == "Player1")
         {
@@ -32,7 +34,7 @@ public class autobounce : MonoBehaviour {
         {
             right_bumper = "P4RB";
         }
-
+        
     }
 
     // Update is called once per frame
@@ -78,7 +80,7 @@ public class autobounce : MonoBehaviour {
     {
         RaycastHit hit;
         Ray ray = new Ray(gameObject.transform.position, -transform.up);
-        if (Physics.Raycast(ray, out hit, ray_distance/*, player*/))
+        if (Physics.Raycast(ray, out hit, max_distance/*, player*/))
         {
             if (hit.collider.CompareTag("Ground"))
             {

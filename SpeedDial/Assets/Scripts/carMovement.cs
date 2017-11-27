@@ -16,9 +16,9 @@ public class carMovement : MonoBehaviour {
 	private float time = 0.0f;
 	private float default_speed = 0;
     private autobounce autobounce;
-	bool grounded = false;
-
-	public bool being_boosted = false;
+    //	bool grounded = false;
+    public GameObject[] skidTrails;
+    public bool being_boosted = false;
 
 
     private string power_string = "";
@@ -71,7 +71,21 @@ public class carMovement : MonoBehaviour {
         if (autobounce.grounded)
         {
             powerInput = Input.GetAxis(power_string) * speed_modifier;
+            for(int i = 0; i < skidTrails.Length; i++)
+            {
+                skidTrails[i].SetActive(true);
+                print(i);
+            }
         }
+        else
+        {
+            for (int i = 0; i < skidTrails.Length; i++)
+            {
+                skidTrails[i].SetActive(false);
+            }
+        }
+
+        
         turnInput = Input.GetAxis(turn_string) * turn_modifier;
 
         carRigidbody.AddRelativeForce(0f, 0f, powerInput, ForceMode.Acceleration);
