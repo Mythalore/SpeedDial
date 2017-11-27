@@ -67,9 +67,10 @@ public class autobounce : MonoBehaviour {
     IEnumerator flipTimer(Vector3 _pos )
     {
         yield return new WaitForSecondsRealtime(3.0f);
-        
-        flipCar(_pos);
-       
+        if (RaycastLeft() || RaycastRight() || RaycastUp())
+        {
+            flipCar(_pos);
+        }
     }
 
 
