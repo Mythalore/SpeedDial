@@ -5,7 +5,6 @@ using UnityEngine;
 public class PickUpPower : MonoBehaviour {
     // Use this for initialization
     private string weaponTag;
-	public ParticleSystem sparkle;
 
     void Start () {
 
@@ -41,7 +40,7 @@ public class PickUpPower : MonoBehaviour {
                 }
             }
             
-			Destroy (gameObject);
+			//Destroy (gameObject);
         }
 
     }

@@ -40,6 +40,7 @@ public class PowerUpSpawn : MonoBehaviour {
 
 		if (!occupied) {
 			timer += Time.deltaTime;
+			print (timer);
 		}
 
 
@@ -47,7 +48,6 @@ public class PowerUpSpawn : MonoBehaviour {
 		if (timer >= 10) {
 			timer = 0.0f;
 			occupied = true;
-			print (timer);
 			assignPowerUp ();
 		}
 
