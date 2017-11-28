@@ -18,8 +18,8 @@ public class WinScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         playerManagerObject = GameObject.Find("PlayerManager");
-        
 
+        first = playerManagerObject.GetComponent<PlayerManagement>().winner;
         //player1Value = playerManagerObject.GetComponent<PlayerManagement>().player1Rank;
         //player2Value = playerManagerObject.GetComponent<PlayerManagement>().player2Rank;
        // player3Value = playerManagerObject.GetComponent<PlayerManagement>().player3Rank;
