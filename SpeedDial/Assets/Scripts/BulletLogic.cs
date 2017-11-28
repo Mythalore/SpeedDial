@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BulletLogic : MonoBehaviour {
-    private float speed = 450.0f;
+    private float speed = 3000.0f;
     private Rigidbody rb;
 	// Use this for initialization
 	void Start () {
