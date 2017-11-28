@@ -17,10 +17,7 @@ public class PlayerManagement : MonoBehaviour {
     public int player3Lives = 3;
     public int player4Lives = 3;
     public int playerCount = 0;
-    public string player1Rank = "";
-    public string player2Rank = "";
-    public string player3Rank = "";
-    public string player4Rank = "";
+    public int winner = 0;
 
 
     public GameObject player1Object;
@@ -241,12 +238,9 @@ public class PlayerManagement : MonoBehaviour {
         }
     }
 
-    void PlayerRankings(string player1, string player2, string player3, string player4)
+    public void PlayerRankings(int winnerNum)
     {
-        player1Rank = player1;
-        player2Rank = player2;
-        player3Rank = player3;
-        player4Rank = player4;
+        winner = winnerNum;
 
     }
 }

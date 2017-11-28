@@ -29,7 +29,7 @@ public class TimerUI : MonoBehaviour {
     private int p4Deaths;
 
     private GameObject playerManager;
-    private GameObject crown;
+    public GameObject crown;
 
     public GameObject[] player;
 
@@ -43,9 +43,6 @@ public class TimerUI : MonoBehaviour {
         player[1] = GameObject.Find("Player2Car");
         player[2] = GameObject.Find("Player3Car");
         player[3] = GameObject.Find("Player4Car");
-
-        print(player[0].name + "ADDDDED");
-
     }
 
     // Update is called once per frame
@@ -76,12 +73,10 @@ public class TimerUI : MonoBehaviour {
 
         if(timer <= 0)
         {
-            //endGame = true;
-            //endGame(winnerNum)
-            print(winner_num);
+            playerManager.GetComponent<PlayerManagement>().PlayerRankings(winner_num);
         }
-                
-        crown.transform.position = player[winner_num].transform.position + offset;
+
+        crown.transform.parent = player[winner_num].transform;       
           
     }
 
