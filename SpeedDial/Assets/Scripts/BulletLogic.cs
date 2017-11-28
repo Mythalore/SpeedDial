@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BulletLogic : MonoBehaviour {
-    private float speed = 30.0f;
+    private float speed = 450.0f;
     private Rigidbody rb;
 	// Use this for initialization
 	void Start () {
@@ -12,7 +12,7 @@ public class BulletLogic : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        rb.velocity = transform.forward * speed;
+        rb.velocity = transform.forward * speed * Time.deltaTime;
     }
     void OnTriggerEnter(Collider col)
     {
