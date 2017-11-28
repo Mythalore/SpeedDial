@@ -10,12 +10,15 @@ public class PowerUpSpawn : MonoBehaviour {
 	private bool occupied = true;
 	private float timer = 0.0f;
 
+
+	public ParticleSystem sparkle;
 	private int speed = 30;
 
 	private GameObject powerup;
 
 	// Use this for initialization
 	void Start () {
+		sparkle.Stop ();
 		assignPowerUp ();
 	}
 	
@@ -30,6 +33,7 @@ public class PowerUpSpawn : MonoBehaviour {
 		if (!powerup) {
 
 			occupied = false;
+			sparkle.Stop ();
 		}
 
 
@@ -56,6 +60,7 @@ public class PowerUpSpawn : MonoBehaviour {
 	void assignPowerUp()
 	{
 		int weapon = Random.Range (0, 2);
+		sparkle.Play ();
 
 		if (weapon == 0) {
 			powerup = Instantiate (rocket, gameObject.transform.position, rocket.transform.rotation);
