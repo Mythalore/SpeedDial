@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class PickUpPower : MonoBehaviour {
     // Use this for initialization
-    
+    private string weaponTag;
+
+
     void Start () {
 
 
