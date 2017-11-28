@@ -20,6 +20,14 @@ TagManager:
   - targetFinder
   - BasicBullet
   - Ignore
+  - P3Spawn
+  - P4Spawn
+  - P2Spawn
+  - P1Spawn
+  - 1ST
+  - 2ND
+  - 3RD
+  - 4TH
   layers:
   - Default
   - TransparentFX

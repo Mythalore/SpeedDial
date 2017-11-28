@@ -17,6 +17,11 @@ public class PlayerManagement : MonoBehaviour {
     public int player3Lives = 3;
     public int player4Lives = 3;
     public int playerCount = 0;
+    public string player1Rank = "";
+    public string player2Rank = "";
+    public string player3Rank = "";
+    public string player4Rank = "";
+
 
     public GameObject player1Object;
     public GameObject player2Object;
