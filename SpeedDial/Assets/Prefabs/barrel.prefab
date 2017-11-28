@@ -24,7 +24,6 @@ GameObject:
   - component: {fileID: 64777483795853036}
   - component: {fileID: 198543011093107666}
   - component: {fileID: 199647708167429338}
-  - component: {fileID: 82941291388600466}
   - component: {fileID: 114809412515803852}
   m_Layer: 0
   m_Name: barrel
@@ -43,6 +42,7 @@ GameObject:
   - component: {fileID: 4851953014711468}
   - component: {fileID: 198506211288441844}
   - component: {fileID: 199418440724887898}
+  - component: {fileID: 82937278315463418}
   m_Layer: 0
   m_Name: Explosion
   m_TagString: Untagged
@@ -130,17 +130,18 @@ MeshCollider:
   m_InflateMesh: 0
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 0d20c6fc108948c48989d9a18bd1e4e6, type: 3}
---- !u!82 &82941291388600466
+--- !u!82 &82937278315463418
 AudioSource:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1380756107369516}
+  m_GameObject: {fileID: 1766290938155228}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 8ccf0e1abc2b71340b9e30917872e445, type: 3}
-  m_PlayOnAwake: 0
+  OutputAudioMixerGroup: {fileID: 243268517803457154, guid: 92809ce48b56ab141bc0958057d286d3,
+    type: 2}
+  m_audioClip: {fileID: 8300000, guid: 525d7211118c5a74cb6cb2228fd14f62, type: 3}
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -197,7 +198,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 0
+    m_RotationOrder: 4
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
