@@ -19,18 +19,32 @@ public class TimerUI : MonoBehaviour {
     private int p3Score;
     private int p4Score;
 
+    private Vector3 offset = new Vector3(0, 0.1f, 0);
+    private int[] score = new int[4];
+    private int[] deaths = new int[4];
+
     private int p1Deaths;
     private int p2Deaths;
     private int p3Deaths;
     private int p4Deaths;
 
     private GameObject playerManager;
+    private GameObject crown;
 
+    public GameObject[] player;
+
+    public int winner_num = 0;
     // Use this for initialization
     void Start () {
         timer = 120;
-
+        crown = GameObject.Find("Crown");
         playerManager = GameObject.Find("PlayerManager");
+        player[0] = GameObject.Find("Player1Car");
+        player[1] = GameObject.Find("Player2Car");
+        player[2] = GameObject.Find("Player3Car");
+        player[3] = GameObject.Find("Player4Car");
+
+        print(player[0].name + "ADDDDED");
 
     }
 
@@ -45,16 +59,30 @@ public class TimerUI : MonoBehaviour {
         else
             timer_text.text = "00" + ":" + seconds.ToString();
 
-        P1ScoreText.text = p1Score.ToString() + "/" + p1Deaths.ToString();
-        P2ScoreText.text = p2Score.ToString() + "/" + p2Deaths.ToString();
-        P3ScoreText.text = p3Score.ToString() + "/" + p3Deaths.ToString();
-        P4ScoreText.text = p4Score.ToString() + "/" + p4Deaths.ToString();
+        P1ScoreText.text = score[0].ToString() + "/" + deaths[0].ToString();
+        P2ScoreText.text = score[1].ToString() + "/" + deaths[1].ToString();
+        P3ScoreText.text = score[2].ToString() + "/" + deaths[2].ToString();
+        P4ScoreText.text = score[3].ToString() + "/" + deaths[3].ToString();
 
-        if(timer == 0)
+       
+        for(int i = 0; i < score.Length; i++)
         {
-
+            if(score[i] > winner_num)
+            {
+                winner_num = i;
+                print(winner_num);
+            }
         }
 
+        if(timer <= 0)
+        {
+            //endGame = true;
+            //endGame(winnerNum)
+            print(winner_num);
+        }
+                
+        crown.transform.position = player[winner_num].transform.position + offset;
+          
     }
 
 
@@ -63,16 +91,16 @@ public class TimerUI : MonoBehaviour {
         switch(_playerName)
         {
             case "Player1Car":
-                p1Score++;
+                score[0]++;
                 break;
             case "Player2Car":
-                p2Score++;
+                score[1]++;
                 break;
             case "Player3Car":
-                p3Score++;
+                score[2]++;
                 break;
             case "Player4Car":
-                p4Score++;
+                score[3]++;
                 break;
         }
     }
@@ -82,16 +110,16 @@ public class TimerUI : MonoBehaviour {
         switch (_playerName)
         {
             case "Player1Car":
-                p1Deaths++;
+                deaths[0]++;
                 break;
             case "Player2Car":
-                p2Deaths++;
+                deaths[1]++;
                 break;
             case "Player3Car":
-                p3Deaths++;
+                deaths[2]++;
                 break;
             case "Player4Car":
-                p4Deaths++;
+                deaths[3]++;
                 break;
         }
     }
