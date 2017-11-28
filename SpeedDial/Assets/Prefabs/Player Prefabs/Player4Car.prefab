@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 114263949337093672}
   m_Layer: 5
   m_Name: Phone Prefab
-  m_TagString: Untagged
+  m_TagString: Player4
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -478,7 +478,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1890026214882350}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 13.84, z: 0}
+  m_LocalPosition: {x: 0, y: 0.28, z: -7.96}
   m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_Children:
   - {fileID: 4729379607683606}

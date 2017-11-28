@@ -31,7 +31,7 @@ public class carMovement : MonoBehaviour {
         carRigidbody = GetComponent<Rigidbody>();
 		default_speed = speed_modifier;
         autobounce = gameObject.GetComponent<autobounce>();
-
+        turn_modifier = 40;
         if(gameObject.tag == "Player1")
         {
             turn_string = "P1Turn";
