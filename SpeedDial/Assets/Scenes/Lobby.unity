@@ -680,7 +680,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 653.51, y: -24.134998}
+  m_AnchoredPosition: {x: 653.51, y: -4.25}
   m_SizeDelta: {x: 164, y: 119.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &547927605
@@ -697,10 +697,10 @@ MonoBehaviour:
   playerManagerObject: {fileID: 1930306783}
   playerManager: {fileID: 0}
   ThumbsUp: {fileID: 21300000, guid: 853c1b570bafbfd4f908933ab7417305, type: 3}
-  P1ThumbsDown: {fileID: 0}
-  P2ThumbsDown: {fileID: 0}
-  P3ThumbsDown: {fileID: 0}
-  P4ThumbsDown: {fileID: 0}
+  P1ThumbsDown: {fileID: 21300000, guid: 27aeb8d44059c5e449da0adfd3584c3e, type: 3}
+  P2ThumbsDown: {fileID: 21300000, guid: 4302d0248aa3e4c4c9c779631ae224db, type: 3}
+  P3ThumbsDown: {fileID: 21300000, guid: 9b6ab8c2640180949abfd404e8fc6734, type: 3}
+  P4ThumbsDown: {fileID: 21300000, guid: cbdc830e6c04a0c4a99b17e07c4177a4, type: 3}
 --- !u!114 &547927606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -720,9 +720,9 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 6c99c855fe6887a4086e92cb147fa817, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 27aeb8d44059c5e449da0adfd3584c3e, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -924,7 +924,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 653.25, y: -265}
+  m_AnchoredPosition: {x: 653.77, y: -257}
   m_SizeDelta: {x: 164.51, y: 122}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &959428064
@@ -940,11 +940,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerManagerObject: {fileID: 1930306783}
   playerManager: {fileID: 0}
-  ThumbsUp: {fileID: 0}
-  P1ThumbsDown: {fileID: 0}
-  P2ThumbsDown: {fileID: 0}
-  P3ThumbsDown: {fileID: 0}
-  P4ThumbsDown: {fileID: 0}
+  ThumbsUp: {fileID: 21300000, guid: 853c1b570bafbfd4f908933ab7417305, type: 3}
+  P1ThumbsDown: {fileID: 21300000, guid: 27aeb8d44059c5e449da0adfd3584c3e, type: 3}
+  P2ThumbsDown: {fileID: 21300000, guid: 4302d0248aa3e4c4c9c779631ae224db, type: 3}
+  P3ThumbsDown: {fileID: 21300000, guid: 9b6ab8c2640180949abfd404e8fc6734, type: 3}
+  P4ThumbsDown: {fileID: 21300000, guid: cbdc830e6c04a0c4a99b17e07c4177a4, type: 3}
 --- !u!114 &959428065
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -964,9 +964,9 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 2cf934bb926ce27458e35ae63bfcdd50, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9b6ab8c2640180949abfd404e8fc6734, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -1329,7 +1329,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 653.25, y: -144.04}
+  m_AnchoredPosition: {x: 653.25, y: -126.03999}
   m_SizeDelta: {x: 164.51, y: 119.91}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1708078451
@@ -1345,11 +1345,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerManagerObject: {fileID: 1930306783}
   playerManager: {fileID: 0}
-  ThumbsUp: {fileID: 0}
-  P1ThumbsDown: {fileID: 0}
-  P2ThumbsDown: {fileID: 0}
-  P3ThumbsDown: {fileID: 0}
-  P4ThumbsDown: {fileID: 0}
+  ThumbsUp: {fileID: 21300000, guid: 853c1b570bafbfd4f908933ab7417305, type: 3}
+  P1ThumbsDown: {fileID: 21300000, guid: 27aeb8d44059c5e449da0adfd3584c3e, type: 3}
+  P2ThumbsDown: {fileID: 21300000, guid: 4302d0248aa3e4c4c9c779631ae224db, type: 3}
+  P3ThumbsDown: {fileID: 21300000, guid: 9b6ab8c2640180949abfd404e8fc6734, type: 3}
+  P4ThumbsDown: {fileID: 21300000, guid: cbdc830e6c04a0c4a99b17e07c4177a4, type: 3}
 --- !u!114 &1708078452
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1369,9 +1369,9 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 4c3ae68fb3dc9194195ce4d00c5b43b4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4302d0248aa3e4c4c9c779631ae224db, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -1432,11 +1432,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerManagerObject: {fileID: 1930306783}
   playerManager: {fileID: 0}
-  ThumbsUp: {fileID: 0}
-  P1ThumbsDown: {fileID: 0}
-  P2ThumbsDown: {fileID: 0}
-  P3ThumbsDown: {fileID: 0}
-  P4ThumbsDown: {fileID: 0}
+  ThumbsUp: {fileID: 21300000, guid: 853c1b570bafbfd4f908933ab7417305, type: 3}
+  P1ThumbsDown: {fileID: 21300000, guid: 27aeb8d44059c5e449da0adfd3584c3e, type: 3}
+  P2ThumbsDown: {fileID: 21300000, guid: 4302d0248aa3e4c4c9c779631ae224db, type: 3}
+  P3ThumbsDown: {fileID: 21300000, guid: 9b6ab8c2640180949abfd404e8fc6734, type: 3}
+  P4ThumbsDown: {fileID: 21300000, guid: cbdc830e6c04a0c4a99b17e07c4177a4, type: 3}
 --- !u!114 &1724778233
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1456,9 +1456,9 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 1053fe341e9352a4088085081f76a7f7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cbdc830e6c04a0c4a99b17e07c4177a4, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
