@@ -520,7 +520,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1517315933075470}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 517.6158, y: -6699.0093, z: -2059.8906}
+  m_LocalPosition: {x: 517.2428, y: 6.50364, z: -2060.7988}
   m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_Children:
   - {fileID: 4979004912929814}
@@ -1266,6 +1266,7 @@ MonoBehaviour:
   turn_modifier: 20
   threshold: 1
   dist_to_ground: 0.5
+  gravity_modifier: 10
   skidTrails:
   - {fileID: 1509476002701220}
   - {fileID: 1396127356521726}

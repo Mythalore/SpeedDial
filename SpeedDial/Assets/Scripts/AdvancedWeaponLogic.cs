@@ -14,6 +14,10 @@ public class AdvancedWeaponLogic : MonoBehaviour {
     private Weapon wpnMan;
     private WeaponTargeting WpnTar;
     private LineRenderer line;
+
+
+
+    private string Y;
     public enum AttachState
     {
         Idle,
@@ -41,6 +45,25 @@ public class AdvancedWeaponLogic : MonoBehaviour {
         wpnMan = gameObject.GetComponent<Weapon>();
         line = GetComponent<LineRenderer>();
         line.positionCount = 2;
+
+       if(gameObject.transform.parent.CompareTag("Player1"))
+        {
+            Y = "P1 Y";
+        }
+        if (gameObject.transform.parent.CompareTag("Player2"))
+        {
+            Y = "P2 Y";
+        }
+        if (gameObject.transform.parent.CompareTag("Player3"))
+        {
+            Y = "P3 Y";
+        }
+        if (gameObject.transform.parent.CompareTag("Player4"))
+        {
+            Y = "P4 Y";
+        }
+
+
     }
 
     // Update is called once per frame
@@ -50,7 +73,7 @@ public class AdvancedWeaponLogic : MonoBehaviour {
         {
             LookAttarget();
         }
-        if (Input.GetButton("AdvFire1") && attachState == AttachState.WeaponAttached)
+        if (Input.GetButton(Y) && attachState == AttachState.WeaponAttached)
         {
             timer += Time.deltaTime;
             if (timer >= timeBetweenShots)
