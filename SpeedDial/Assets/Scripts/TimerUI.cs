@@ -20,7 +20,7 @@ public class TimerUI : MonoBehaviour {
     private int p3Score;
     private int p4Score;
 
-    private Vector3 offset = new Vector3(0, 0.1f, 0);
+    public Vector3 offset = new Vector3(0.08f, 0.1f, 0);
     private int[] score = new int[4];
     private int[] deaths = new int[4];
 
@@ -34,7 +34,7 @@ public class TimerUI : MonoBehaviour {
 
     public GameObject[] player;
 
-    public int winner_num = 0;
+    public int winner_num = -1;
     // Use this for initialization
     void Start () {
         timer = 120;
@@ -65,7 +65,7 @@ public class TimerUI : MonoBehaviour {
        
         for(int i = 0; i < score.Length; i++)
         {
-            if(score[i] > winner_num)
+            if(score[i] > winner_num && score[i] != 0)
             {
                 winner_num = i;
                 print(winner_num);
@@ -79,7 +79,14 @@ public class TimerUI : MonoBehaviour {
             SceneManager.LoadScene(3);
         }
 
-        crown.transform.parent = player[winner_num].transform;       
+        if(winner_num != -1)
+        {
+            crown.transform.parent = player[winner_num].transform;
+            crown.transform.position = player[winner_num].transform.position + offset;      
+
+        }
+
+        
           
     }
 

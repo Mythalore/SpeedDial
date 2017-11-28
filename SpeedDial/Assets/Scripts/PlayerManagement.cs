@@ -183,7 +183,7 @@ public class PlayerManagement : MonoBehaviour {
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         Scene scene1 = SceneManager.GetActiveScene();
-        if (scene.name != "Lobby" && scene.name != "Menu")
+        if (scene.name != "Lobby" && scene.name != "Menu" && scene.name != "WinScene")
         {
             player1Spawn = null;
             player2Spawn = null;
