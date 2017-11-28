@@ -228,7 +228,7 @@ GameObject:
   - component: {fileID: 114823442435015266}
   m_Layer: 5
   m_Name: Phone Prefab
-  m_TagString: Untagged
+  m_TagString: Player4
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -742,16 +742,16 @@ Canvas:
   m_GameObject: {fileID: 1869347051537514}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
+  m_PlaneDistance: 1
   m_PixelPerfect: 1
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 0
+  m_SortingLayerID: -822279063
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!224 &224036308451737782
@@ -906,7 +906,7 @@ RectTransform:
   m_GameObject: {fileID: 1572040677821336}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4.060805, y: 4.0608025, z: 4.0608025}
+  m_LocalScale: {x: 7, y: 7, z: 7}
   m_Children:
   - {fileID: 224947165280738628}
   - {fileID: 224186585105157660}
@@ -917,7 +917,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -902}
+  m_AnchoredPosition: {x: 22.402, y: -902}
   m_SizeDelta: {x: 121, y: 218}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224797513591095612
