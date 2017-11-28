@@ -39,8 +39,7 @@ public class PickUpPower : MonoBehaviour {
                     col.GetComponentInChildren<canvasScript>().weaponenabled = false;
                 }
             }
-            
-			//Destroy (gameObject);
+           
         }
 
     }
