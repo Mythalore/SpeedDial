@@ -5,12 +5,11 @@ using UnityEngine;
 public class PickUpPower : MonoBehaviour {
     // Use this for initialization
     
-   public GameObject[] car;
-    int i;
-
     void Start () {
 
-	}
+
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -29,32 +28,14 @@ public class PickUpPower : MonoBehaviour {
                 //Quaternion rot = pos.rotation;
                 transform.localRotation = new Quaternion(transform.rotation.x, pos.localRotation.z, pos.localRotation.z, pos.localRotation.w);
 
-                if(col.gameObject.CompareTag("Player1"))
-                {
-                    i = 0;
-                }
-                else if (col.gameObject.CompareTag("Player2"))
-                {
-                    i = 1;
-                }
-                else if (col.gameObject.CompareTag("Player3"))
-                {
-                    i = 2;
-                }
-                else if (col.gameObject.CompareTag("Player4"))
-                {
-                    i = 3;
-                }
 
+                //phone logic
+                col.GetComponentInChildren<canvasScript>().collectable = true;             
 
-
-                //phone logic shit
-                car[i].GetComponentInChildren<canvasScript>().collectable = true;             
-
-                if (car[i].GetComponentInChildren<canvasScript>().weaponenabled == true)
+                if (col.GetComponentInChildren<canvasScript>().weaponenabled == true)
                 {
                     pos.GetComponent<AdvancedWeaponLogic>().AttachedWeapon(gameObject.tag);
-                    car[i].GetComponentInChildren<canvasScript>().weaponenabled = false;
+                    col.GetComponentInChildren<canvasScript>().weaponenabled = false;
                 }
             }
             

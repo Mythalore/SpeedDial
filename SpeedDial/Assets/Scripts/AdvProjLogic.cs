@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class AdvProjLogic : MonoBehaviour {
-    private float speed = 30.0f;
-    private float speed2 = 3.0f;
+    private float speed = 30f;
     private Rigidbody rb;
     private Vector3 targetForProj = Vector3.zero;
     private Vector3 startPos;
     float lerpTime = 1.0f;
     float currentLerpTime;
     float moveDistance = 10f;
+    private int Dmg;
     // Use this for initialization
     void Start()
     {
@@ -37,30 +37,35 @@ public class AdvProjLogic : MonoBehaviour {
             transform.position = Vector3.Lerp(transform.position, targetForProj, perc);
         }
     }
-    void OnTriggerEnter(Collider col)
+    void OnCollisionEnter(Collision col)
     {
-        if (col.gameObject.tag != "Untagged" && col.gameObject.tag != "Rocket" && col.gameObject.tag != transform.parent.tag)
+        if (col.gameObject.tag != transform.parent.tag && col.gameObject.tag != "Ignore")
         {
-            //print(col.gameObject.tag);
-            //print(transform.parent.tag);
-            if (col.CompareTag("Ground") || col.CompareTag("Barrel") || col.CompareTag("Bumper"))
+            print("Hit");
+            if (col.gameObject.CompareTag("Ground") || col.gameObject.CompareTag("Barrel") || col.gameObject.CompareTag("Bumper"))
             {
+                print("Hit object");
                 Destroy(gameObject);
             }
             else
             {
+                print("whomp");
                 print("player");
                 Destroy(gameObject);
+                col.gameObject.GetComponent<Damage>().TakeDamage(Dmg);
                 //Damage that player
                 //get component player health -= advancedweaponLogicscript.weaponDamage?
             }
-
         }
     }
     public void setTarget(Vector3 target)
     {
         targetForProj = target;
         print(target);
+    }
+    public void setDamage(int damage)
+    {
+        Dmg = damage;
     }
 
 }

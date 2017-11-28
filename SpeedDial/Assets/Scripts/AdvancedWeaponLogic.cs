@@ -82,14 +82,16 @@ public class AdvancedWeaponLogic : MonoBehaviour {
                 if (AttachedWeaponName == "Rocket")
                 {
                     var newBullet = Instantiate(rocketObj, gameObject.transform.position, gameObject.transform.rotation);
-                    newBullet.GetComponent<AdvProjLogic>().setTarget(WpnTar.closestPlayer);
                     newBullet.transform.parent = gameObject.transform.parent;
+                    newBullet.GetComponent<AdvProjLogic>().setTarget(WpnTar.closestPlayer);
+                    newBullet.GetComponent<AdvProjLogic>().setDamage(weaponDamage);
                     weaponUses--;
                 }
                 else if (AttachedWeaponName == "Joust")
                 {
                     var newBullet = Instantiate(JoustPoleObj, gameObject.transform.position, gameObject.transform.rotation);
                     newBullet.transform.parent = gameObject.transform.parent;
+                    newBullet.GetComponent<AdvProjLogic>().setDamage(weaponDamage);
                     newBullet.GetComponent<AdvProjLogic>().setTarget(WpnTar.closestPlayer);
                     weaponUses--;
                 }
@@ -97,6 +99,7 @@ public class AdvancedWeaponLogic : MonoBehaviour {
                 {
                     var newBullet = Instantiate(LaserObj, gameObject.transform.position, gameObject.transform.rotation);
                     newBullet.transform.parent = gameObject.transform.parent;
+                    newBullet.GetComponent<AdvProjLogic>().setDamage(weaponDamage);
                     newBullet.GetComponent<AdvProjLogic>().setTarget(WpnTar.closestPlayer);
                     weaponUses--;
                 }
