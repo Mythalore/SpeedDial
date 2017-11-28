@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class TimerUI : MonoBehaviour {
     private float timer = 0.0f;
@@ -68,12 +69,14 @@ public class TimerUI : MonoBehaviour {
             {
                 winner_num = i;
                 print(winner_num);
+
             }
         }
 
         if(timer <= 0)
         {
             playerManager.GetComponent<PlayerManagement>().PlayerRankings(winner_num);
+            SceneManager.LoadScene(3);
         }
 
         crown.transform.parent = player[winner_num].transform;       
