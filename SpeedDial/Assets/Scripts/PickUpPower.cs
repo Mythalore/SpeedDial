@@ -3,8 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PickUpPower : MonoBehaviour {
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    
+   public GameObject[] car;
+    int i;
+
+    void Start () {
 
 	}
 	
@@ -25,8 +29,33 @@ public class PickUpPower : MonoBehaviour {
                 //Quaternion rot = pos.rotation;
                 transform.localRotation = new Quaternion(transform.rotation.x, pos.localRotation.z, pos.localRotation.z, pos.localRotation.w);
 
+                if(col.gameObject.CompareTag("Player1"))
+                {
+                    i = 0;
+                }
+                else if (col.gameObject.CompareTag("Player2"))
+                {
+                    i = 1;
+                }
+                else if (col.gameObject.CompareTag("Player3"))
+                {
+                    i = 2;
+                }
+                else if (col.gameObject.CompareTag("Player4"))
+                {
+                    i = 3;
+                }
+
+
+
                 //phone logic shit
-                pos.GetComponent<AdvancedWeaponLogic>().AttachedWeapon(gameObject.tag);
+                car[i].GetComponentInChildren<canvasScript>().collectable = true;             
+
+                if (car[i].GetComponentInChildren<canvasScript>().weaponenabled == true)
+                {
+                    pos.GetComponent<AdvancedWeaponLogic>().AttachedWeapon(gameObject.tag);
+                    car[i].GetComponentInChildren<canvasScript>().weaponenabled = false;
+                }
             }
             
         }
