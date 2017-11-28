@@ -41,6 +41,7 @@ public class PickUpPower : MonoBehaviour {
                 }
             }
             
+			Destroy (gameObject);
         }
 
     }
