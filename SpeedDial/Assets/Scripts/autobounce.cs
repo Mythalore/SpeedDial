@@ -13,7 +13,7 @@ public class autobounce : MonoBehaviour {
     private string right_bumper = "";
 
     private float max_distance;
-
+    private string aButton = "";
     // Use this for initialization
     void Start () {
         max_distance = gameObject.GetComponent<Collider>().bounds.size.y/2 + 0.3f;
@@ -34,7 +34,22 @@ public class autobounce : MonoBehaviour {
         {
             right_bumper = "P4RB";
         }
-        
+        if (gameObject.tag == "Player1")
+        {
+            aButton = "P1 A";
+        }
+        if (gameObject.tag == "Player2")
+        {
+            right_bumper = "P2 A";
+        }
+        if (gameObject.tag == "Player3")
+        {
+            right_bumper = "P3 A";
+        }
+        if (gameObject.tag == "Player4")
+        {
+            right_bumper = "P4 A";
+        }
     }
 
     // Update is called once per frame
@@ -50,7 +65,7 @@ public class autobounce : MonoBehaviour {
         {
             StartCoroutine(flipTimer(Vector3.zero));
         }
-        if (Input.GetButtonDown(right_bumper) && Input.GetButtonDown("P1 A"))
+        if (Input.GetButtonDown(right_bumper) && Input.GetButtonDown(aButton))
         {
             print("debug flip");
             StartCoroutine(flipTimer(start_pos));
