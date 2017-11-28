@@ -12,6 +12,7 @@ public class TimerUI : MonoBehaviour {
     public Text P2ScoreText;
     public Text P3ScoreText;
     public Text P4ScoreText;
+    
 
     private int p1Score;
     private int p2Score;
@@ -23,19 +24,24 @@ public class TimerUI : MonoBehaviour {
     private int p3Deaths;
     private int p4Deaths;
 
+    private GameObject playerManager;
+
     // Use this for initialization
     void Start () {
-       
+        timer = 120;
+
+        playerManager = GameObject.Find("PlayerManager");
 
     }
 
     // Update is called once per frame
     void Update () {
-        timer += Time.deltaTime;
+        timer -= Time.deltaTime;
         float minutes = Mathf.Floor(timer / 60);
         float seconds = Mathf.RoundToInt(timer % 60);
+
         if(minutes != 0)
-            timer_text.text = minutes.ToString() + ":" + seconds.ToString();
+            timer_text.text = "0" + minutes.ToString() + ":" + seconds.ToString();
         else
             timer_text.text = "00" + ":" + seconds.ToString();
 
@@ -43,6 +49,11 @@ public class TimerUI : MonoBehaviour {
         P2ScoreText.text = p2Score.ToString() + "/" + p2Deaths.ToString();
         P3ScoreText.text = p3Score.ToString() + "/" + p3Deaths.ToString();
         P4ScoreText.text = p4Score.ToString() + "/" + p4Deaths.ToString();
+
+        if(timer == 0)
+        {
+
+        }
 
     }
 

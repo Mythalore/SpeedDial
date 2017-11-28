@@ -70,6 +70,8 @@ public class Damage : MonoBehaviour
         if(health <= 0)
         {
             DestroyCar();
+            mainCanvas.GetComponent<TimerUI>().UpdatePlayerKills(last_attacker);
+
             mainCanvas.GetComponent<TimerUI>().UpdatePlayerLives(gameObject.name);           
         }
     }
