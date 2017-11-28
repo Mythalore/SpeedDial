@@ -240,4 +240,13 @@ public class PlayerManagement : MonoBehaviour {
             }
         }
     }
+
+    void PlayerRankings(string player1, string player2, string player3, string player4)
+    {
+        player1Rank = player1;
+        player2Rank = player2;
+        player3Rank = player3;
+        player4Rank = player4;
+
+    }
 }
