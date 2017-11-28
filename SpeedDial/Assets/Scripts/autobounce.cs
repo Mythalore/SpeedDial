@@ -40,15 +40,15 @@ public class autobounce : MonoBehaviour {
         }
         if (gameObject.tag == "Player2")
         {
-            right_bumper = "P2 A";
+            aButton = "P2 A";
         }
         if (gameObject.tag == "Player3")
         {
-            right_bumper = "P3 A";
+            aButton = "P3 A";
         }
         if (gameObject.tag == "Player4")
         {
-            right_bumper = "P4 A";
+            aButton = "P4 A";
         }
     }
 
