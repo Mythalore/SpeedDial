@@ -9,6 +9,8 @@ public class explodingBarrel : MonoBehaviour {
     private AudioSource source;
     public float explode_force = 10.0f;
     private Mesh mesh;
+
+
 	// Use this for initialization
 	void Start () {
 		explosion = gameObject.GetComponentInChildren<ParticleSystem> ();
@@ -49,7 +51,7 @@ public class explodingBarrel : MonoBehaviour {
         }
         Instantiate(brokenBarrel);
 		//explosion.enabled = true;
-		yield return new WaitForSeconds (2);
+		yield return new WaitForSeconds (0.2f);
 		Destroy (gameObject);
 	}
 }

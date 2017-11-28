@@ -19,7 +19,7 @@ public class speedBoost : MonoBehaviour {
 
 	void OnCollisionEnter(Collision col)
 	{
-		if(col.gameObject.CompareTag("Player1"))
+		if(col.gameObject.CompareTag("Player1") || col.gameObject.CompareTag("Player2") || col.gameObject.CompareTag("Player3") || col.gameObject.CompareTag("Player4"))
 		{
 			player = col.gameObject.GetComponent<carMovement>();
 			player.being_boosted = true;

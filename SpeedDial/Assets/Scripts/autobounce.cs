@@ -16,7 +16,7 @@ public class autobounce : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        max_distance = gameObject.GetComponent<Collider>().bounds.size.y/2 + 0.1f;
+        max_distance = gameObject.GetComponent<Collider>().bounds.size.y/2 + 0.3f;
         start_pos = transform.position;
         if (gameObject.tag == "Player1")
         {
@@ -78,7 +78,7 @@ public class autobounce : MonoBehaviour {
         }
         else
         {
-            if (RaycastLeft() || RaycastRight() || RaycastUp())
+            if (RaycastLeft() || RaycastRight() || RaycastUp() || RaycastBackwards() || RaycastForward())
             {
                 flipCar(transform.position);
             }
@@ -129,6 +129,7 @@ public class autobounce : MonoBehaviour {
         return return_value;
 
     }
+
     bool RaycastLeft()
     {
         RaycastHit hit;
@@ -151,6 +152,7 @@ public class autobounce : MonoBehaviour {
         return return_value;
 
     }
+
     bool RaycastRight()
     {
         RaycastHit hit;
@@ -172,5 +174,51 @@ public class autobounce : MonoBehaviour {
         }
         return return_value;
  
+    }
+
+    bool RaycastForward()
+    {
+        RaycastHit hit;
+        Ray ray = new Ray(gameObject.transform.position, transform.forward);
+        if (Physics.Raycast(ray, out hit, ray_distance/*, player*/))
+        {
+            if (hit.collider.CompareTag("Ground"))
+            {
+                print("Front hitting ground");
+                Debug.DrawRay(gameObject.transform.position, transform.right, Color.red);
+
+                return_value = true;
+            }
+        }
+        else
+        {
+            Debug.DrawRay(transform.position, -transform.up, Color.blue);
+            return_value = false;
+        }
+        return return_value;
+
+    }
+
+    bool RaycastBackwards()
+    {
+        RaycastHit hit;
+        Ray ray = new Ray(gameObject.transform.position, -transform.forward);
+        if (Physics.Raycast(ray, out hit, ray_distance/*, player*/))
+        {
+            if (hit.collider.CompareTag("Ground"))
+            {
+                print("Rear hitting ground");
+                Debug.DrawRay(gameObject.transform.position, transform.right, Color.red);
+
+                return_value = true;
+            }
+        }
+        else
+        {
+            Debug.DrawRay(transform.position, -transform.up, Color.blue);
+            return_value = false;
+        }
+        return return_value;
+
     }
 }

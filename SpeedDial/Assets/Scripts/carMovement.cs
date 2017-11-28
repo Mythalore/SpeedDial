@@ -8,7 +8,7 @@ public class carMovement : MonoBehaviour {
     public float turn_modifier = 10;
 	public float threshold = 0;
 	public float dist_to_ground = 0.5f;
-    
+    public float gravity_modifier = 10.0f;
 	private float powerInput;
     private float turnInput;
 	private Rigidbody carRigidbody;
@@ -70,34 +70,40 @@ public class carMovement : MonoBehaviour {
     {
         if (autobounce.grounded)
         {
+            //gravity_modifier *= 0.5f;
             powerInput = -Input.GetAxis(power_string) * speed_modifier;
+            turnInput = Input.GetAxis(turn_string) * turn_modifier;
             for(int i = 0; i < skidTrails.Length; i++)
             {
                 skidTrails[i].SetActive(true);
             }
+            carRigidbody.AddRelativeForce(0f, 0f, powerInput, ForceMode.Acceleration);
+            carRigidbody.AddRelativeTorque(0f, turnInput, 0f, ForceMode.Force);
         }
         else
         {
+            
+            turnInput *= 0.5f;
             for (int i = 0; i < skidTrails.Length; i++)
             {
                 skidTrails[i].SetActive(false);
             }
+            //carRigidbody.AddRelativeForce(0.0f, gravity_modifier, 0.0f);
+            print("adding gravity");
         }
 
-        
-        turnInput = Input.GetAxis(turn_string) * turn_modifier;
 
-        carRigidbody.AddRelativeForce(0f, 0f, powerInput, ForceMode.Acceleration);
-        carRigidbody.AddRelativeTorque(0f, turnInput, 0f, ForceMode.VelocityChange);
     }
 
     public void ResetForces()
     {
+        powerInput = 0;
+        turnInput = 0;
         //reset everything to 0? somehow?
     }
 
 
-	public void AddBoost()
+    public void AddBoost()
 	{
 		if (being_boosted) 
 		{
