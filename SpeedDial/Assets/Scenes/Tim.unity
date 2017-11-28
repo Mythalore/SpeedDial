@@ -2302,7 +2302,7 @@ GameObject:
   - component: {fileID: 1148280977}
   - component: {fileID: 1148280979}
   - component: {fileID: 1148280978}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Timer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2491,7 +2491,7 @@ GameObject:
   - component: {fileID: 1214265561}
   - component: {fileID: 1214265560}
   - component: {fileID: 1214265563}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
