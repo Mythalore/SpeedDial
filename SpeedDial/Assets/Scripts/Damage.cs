@@ -15,8 +15,12 @@ public class Damage : MonoBehaviour
     public GameObject explosion;
 
     private autobounce _ab;
+    private string last_attacker = "";
+    private GameObject mainCanvas;
+
     // Use this for initialization
     void Start () {
+        mainCanvas = GameObject.Find("MainCanvas");
         _ab = gameObject.GetComponent<autobounce>();
         //huge_Fire = GetComponentInChildren<GameObject>(small_Fire);
         fire.SetActive(false);
@@ -31,8 +35,9 @@ public class Damage : MonoBehaviour
 	}
 
 
-    public void TakeDamage(int _weaponDamage)
+    public void TakeDamage(int _weaponDamage, string attacking_player)
     {
+        last_attacker = attacking_player;
         health -= _weaponDamage;
     }
 
@@ -64,7 +69,8 @@ public class Damage : MonoBehaviour
         }
         if(health <= 0)
         {
-            DestroyCar();               
+            DestroyCar();
+            mainCanvas.GetComponent<TimerUI>().UpdatePlayerLives(gameObject.name);           
         }
     }
 

@@ -52,7 +52,7 @@ public class AdvProjLogic : MonoBehaviour {
                 print("whomp");
                 print("player");
                 Destroy(gameObject);
-                col.gameObject.GetComponent<Damage>().TakeDamage(Dmg);
+                col.gameObject.GetComponent<Damage>().TakeDamage(Dmg, gameObject.transform.parent.name);
                 //Damage that player
                 //get component player health -= advancedweaponLogicscript.weaponDamage?
             }

@@ -20,7 +20,7 @@ public class BulletLogic : MonoBehaviour {
         {
             if(col.gameObject.CompareTag("Player1") || col.gameObject.CompareTag("Player2")|| col.gameObject.CompareTag("Player3")|| col.gameObject.CompareTag("Player4"))
             {
-                col.GetComponent<Damage>().TakeDamage(2);
+                col.GetComponent<Damage>().TakeDamage(2, transform.parent.name);
                 print(col.gameObject.tag + " hit for 2");
             }
             Destroy(gameObject);
