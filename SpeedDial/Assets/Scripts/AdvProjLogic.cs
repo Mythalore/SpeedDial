@@ -22,11 +22,11 @@ public class AdvProjLogic : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (targetForProj == Vector3.zero)
-        {
-            rb.velocity = transform.forward * speed;
-        }
-        else if (transform.position != targetForProj)
+        //if (targetForProj == Vector3.zero)
+        //{
+        //    rb.velocity = transform.forward * speed;
+        //}
+        if (transform.position != targetForProj && targetForProj != Vector3.zero)
         {
             currentLerpTime += Time.deltaTime;
             if (currentLerpTime > lerpTime)
@@ -39,7 +39,7 @@ public class AdvProjLogic : MonoBehaviour {
     }
     void OnCollisionEnter(Collision col)
     {
-        if (col.gameObject.tag != transform.parent.tag && col.gameObject.tag != "Ignore")
+        if (col.gameObject.tag != transform.parent.tag && col.gameObject.tag != "Ignore" && col.gameObject.tag != gameObject.tag)
         {
             print("Hit");
             if (col.gameObject.CompareTag("Ground") || col.gameObject.CompareTag("Barrel") || col.gameObject.CompareTag("Bumper"))
