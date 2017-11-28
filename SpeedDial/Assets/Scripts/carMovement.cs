@@ -89,7 +89,6 @@ public class carMovement : MonoBehaviour {
                 skidTrails[i].SetActive(false);
             }
             //carRigidbody.AddRelativeForce(0.0f, gravity_modifier, 0.0f);
-            print("adding gravity");
         }
 
 

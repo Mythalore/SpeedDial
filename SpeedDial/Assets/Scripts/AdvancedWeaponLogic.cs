@@ -79,26 +79,30 @@ public class AdvancedWeaponLogic : MonoBehaviour {
             if (timer >= timeBetweenShots)
             {
                 timer = 0.0f;
-                if (AttachedWeaponName == "Rocket")
+                if (AttachedWeaponName == "Rocket" && WpnTar.closestPlayer != Vector3.zero)
+                    
                 {
                     var newBullet = Instantiate(rocketObj, gameObject.transform.position, gameObject.transform.rotation);
                     newBullet.transform.parent = gameObject.transform.parent;
+                    newBullet.GetComponent<CapsuleCollider>().isTrigger = false;
                     newBullet.GetComponent<AdvProjLogic>().setTarget(WpnTar.closestPlayer);
                     newBullet.GetComponent<AdvProjLogic>().setDamage(weaponDamage);
                     weaponUses--;
                 }
-                else if (AttachedWeaponName == "Joust")
+                else if (AttachedWeaponName == "Joust" && WpnTar.closestPlayer != Vector3.zero)
                 {
                     var newBullet = Instantiate(JoustPoleObj, gameObject.transform.position, gameObject.transform.rotation);
                     newBullet.transform.parent = gameObject.transform.parent;
+                    newBullet.GetComponent<CapsuleCollider>().isTrigger = false;
                     newBullet.GetComponent<AdvProjLogic>().setDamage(weaponDamage);
                     newBullet.GetComponent<AdvProjLogic>().setTarget(WpnTar.closestPlayer);
                     weaponUses--;
                 }
-                else if (AttachedWeaponName == "Laser")
+                else if (AttachedWeaponName == "Laser" && WpnTar.closestPlayer != Vector3.zero)
                 {
                     var newBullet = Instantiate(LaserObj, gameObject.transform.position, gameObject.transform.rotation);
                     newBullet.transform.parent = gameObject.transform.parent;
+                    newBullet.GetComponent<CapsuleCollider>().isTrigger = false;
                     newBullet.GetComponent<AdvProjLogic>().setDamage(weaponDamage);
                     newBullet.GetComponent<AdvProjLogic>().setTarget(WpnTar.closestPlayer);
                     weaponUses--;
@@ -113,7 +117,7 @@ public class AdvancedWeaponLogic : MonoBehaviour {
     }
     public void AttachedWeapon(string weaponType)
     {
-        attachState = AttachState.WeaponAttached;
+        //attachState = AttachState.WeaponAttached;
         if (weaponType == "Rocket")
         {
             Rocket rocket = new Rocket();
@@ -145,6 +149,8 @@ public class AdvancedWeaponLogic : MonoBehaviour {
     }
     private void removeWeapon()
     {
+        WpnTar.closestPlayer = Vector3.zero;
+        LookAttarget();
         attachState = AttachState.NoWeaponAttached;
         foreach (Transform child in transform)
         {
@@ -163,5 +169,9 @@ public class AdvancedWeaponLogic : MonoBehaviour {
             line.SetPosition(0, Vector3.zero);
             line.SetPosition(1, Vector3.zero);
         }
+    }
+    public void setAttached()
+    {
+        attachState = AttachState.WeaponAttached;
     }
 }
