@@ -13,7 +13,7 @@ public class WinScript : MonoBehaviour {
 
     private GameObject playerManagerObject;
    
-    private int first;
+     int first;
 
     // Use this for initialization
     void Start() {
@@ -29,18 +29,22 @@ public class WinScript : MonoBehaviour {
         if (first == 1)
         {
             gameObject.GetComponent<Image>().sprite = Player1;
+            gameObject.GetComponent<Image>().color = Color.red;
         }
         else if (first == 2)
         {
             gameObject.GetComponent<Image>().sprite = Player2;
+            gameObject.GetComponent<Image>().color = Color.magenta;
         }
         else if (first == 3)
         {
             gameObject.GetComponent<Image>().sprite = Player3;
+            gameObject.GetComponent<Image>().color = Color.yellow;
         }
         else if (first == 4)
         {
             gameObject.GetComponent<Image>().sprite = Player4;
+            gameObject.GetComponent<Image>().color = Color.green;
         }
 
 

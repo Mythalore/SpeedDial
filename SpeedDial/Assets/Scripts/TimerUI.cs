@@ -40,10 +40,10 @@ public class TimerUI : MonoBehaviour {
         timer = 120;
         crown = GameObject.Find("Crown");
         playerManager = GameObject.Find("PlayerManager");
-        player[0] = GameObject.Find("Player1Car");
-        player[1] = GameObject.Find("Player2Car");
-        player[2] = GameObject.Find("Player3Car");
-        player[3] = GameObject.Find("Player4Car");
+        player[0] = GameObject.Find("Player1Car(Clone)");
+        player[1] = GameObject.Find("Player2Car(Clone)");
+        player[2] = GameObject.Find("Player3Car(Clone)");
+        player[3] = GameObject.Find("Player4Car(Clone)");
     }
 
     // Update is called once per frame
@@ -67,7 +67,7 @@ public class TimerUI : MonoBehaviour {
         {
             if(score[i] > winner_num && score[i] != 0)
             {
-                winner_num = i;
+                winner_num = i+1;
                 print(winner_num);
 
             }
@@ -75,14 +75,15 @@ public class TimerUI : MonoBehaviour {
 
         if(timer <= 0)
         {
+            
             playerManager.GetComponent<PlayerManagement>().PlayerRankings(winner_num);
             SceneManager.LoadScene(3);
         }
 
         if(winner_num != -1)
         {
-            crown.transform.parent = player[winner_num].transform;
-            crown.transform.position = player[winner_num].transform.position + offset;      
+           // crown.transform.parent = player[winner_num].transform;
+            //crown.transform.position = player[winner_num].transform.position + offset;      
 
         }
 

@@ -484,6 +484,7 @@ MonoBehaviour:
   Player2: {fileID: 21300000, guid: c5ebdf8b288c10d498161d43a99596f4, type: 3}
   Player3: {fileID: 21300000, guid: 5b51fc10f79916d438fafab0f4b53e38, type: 3}
   Player4: {fileID: 21300000, guid: 276b225f12caf1f4d8f64f05c0c32ee6, type: 3}
+  first: 0
 --- !u!1 &2084469765
 GameObject:
   m_ObjectHideFlags: 0
