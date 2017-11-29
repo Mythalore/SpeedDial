@@ -15,7 +15,7 @@ public class BulletLogic : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		timerDelta = Time.deltaTime * 10;
-		rb.velocity = (transform.forward * speed) * timerDelta;
+		rb.velocity = (transform.forward * speed) * Time.fixedDeltaTime;
     }
     void OnTriggerEnter(Collider col)
     {
