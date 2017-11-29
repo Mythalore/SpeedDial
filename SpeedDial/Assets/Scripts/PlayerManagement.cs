@@ -135,7 +135,7 @@ public class PlayerManagement : MonoBehaviour {
             Destroy(canvas);
             if (scene.name == "Lobby")
             {
-                if (playerCount >= 1)
+                if (playerCount > 1)
                 {
                     SceneManager.LoadScene(2);
                    
@@ -144,7 +144,7 @@ public class PlayerManagement : MonoBehaviour {
             }
             else
             {
-                SceneManager.LoadScene(1);
+                //SceneManager.LoadScene(1);
             }
         }
 		
