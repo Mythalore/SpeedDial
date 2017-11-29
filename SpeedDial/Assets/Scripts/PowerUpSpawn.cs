@@ -59,18 +59,19 @@ public class PowerUpSpawn : MonoBehaviour {
 
 	void assignPowerUp()
 	{
-		int weapon = Random.Range (0, 2);
+		int weapon = Random.Range (0, 1);
 		sparkle.Play ();
 
 		if (weapon == 0) {
 			powerup = Instantiate (rocket, gameObject.transform.position, rocket.transform.rotation);
 			powerup.transform.parent = gameObject.transform;
 		//	powerup.transform.position = new Vector3 (0.0f, 0.026f, 0.15f);
-		} else if (weapon == 1) {
-			powerup = Instantiate (joust, gameObject.transform.position, joust.transform.rotation);
-			powerup.transform.parent = gameObject.transform;
-		//	powerup.transform.position = new Vector3 (0.0f, 0.026f, 0.15f);
-		} else if (weapon == 2) {
+//		} else if (weapon == 1) {
+//			powerup = Instantiate (joust, gameObject.transform.position, joust.transform.rotation);
+//			powerup.transform.parent = gameObject.transform;
+//		//	powerup.transform.position = new Vector3 (0.0f, 0.026f, 0.15f);
+		}
+		else if (weapon == 1) {
 			powerup = Instantiate (machinegun, gameObject.transform.position, machinegun.transform.rotation);
 			powerup.transform.parent = gameObject.transform;
 		//	powerup.transform.position = new Vector3 (-19.88f, 0.084f, 53.882f);

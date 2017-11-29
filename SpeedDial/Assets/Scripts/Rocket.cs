@@ -8,7 +8,7 @@ public class Rocket : Weapon {
 	public Rocket () {
         weaponUses = 3;
         weaponName = "Rocket";
-        weaponDamage = 20;
+        weaponDamage = 30;
         timeBetweenshots = 1.0f;
 	}
 	

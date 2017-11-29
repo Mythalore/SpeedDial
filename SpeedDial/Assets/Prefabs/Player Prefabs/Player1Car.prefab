@@ -92,6 +92,7 @@ GameObject:
   - component: {fileID: 20573286392482728}
   - component: {fileID: 124096535929962676}
   - component: {fileID: 92340844102498392}
+  - component: {fileID: 81646478020692754}
   m_Layer: 0
   m_Name: P1Camera
   m_TagString: Ignore
@@ -1170,6 +1171,13 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.7198539, y: 2.8209915, z: 5.425425}
   m_Center: {x: 0.022637129, y: -0.38950443, z: -0.781091}
+--- !u!81 &81646478020692754
+AudioListener:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1167937648097928}
+  m_Enabled: 1
 --- !u!82 &82113061888585478
 AudioSource:
   m_ObjectHideFlags: 1
@@ -1738,6 +1746,7 @@ MonoBehaviour:
   - {fileID: 1720297507972932}
   - {fileID: 1730362017520678}
   being_boosted: 0
+  timerDelta: 0
 --- !u!114 &114053591571838318
 MonoBehaviour:
   m_ObjectHideFlags: 1

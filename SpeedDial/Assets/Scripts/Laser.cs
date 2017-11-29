@@ -8,7 +8,7 @@ public class Laser : Weapon {
 	public Laser () {
         weaponUses = 50;
         weaponName = "Laser";
-        weaponDamage = 2;
+        weaponDamage = 20;
         timeBetweenshots = 0.0f;
     }
 	

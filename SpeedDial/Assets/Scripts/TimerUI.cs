@@ -95,16 +95,16 @@ public class TimerUI : MonoBehaviour {
     {
         switch(_playerName)
         {
-            case "Player1Car":
+		case "Player1Car(Clone)":
                 score[0]++;
                 break;
-            case "Player2Car":
+		case "Player2Car(Clone)":
                 score[1]++;
                 break;
-            case "Player3Car":
+		case "Player3Car(Clone)":
                 score[2]++;
                 break;
-            case "Player4Car":
+		case "Player4Car(Clone)":
                 score[3]++;
                 break;
         }
@@ -114,16 +114,16 @@ public class TimerUI : MonoBehaviour {
     {
         switch (_playerName)
         {
-            case "Player1Car":
+		case "Player1Car(Clone)":
                 deaths[0]++;
                 break;
-            case "Player2Car":
+		case "Player2Car(Clone)":
                 deaths[1]++;
                 break;
-            case "Player3Car":
+		case "Player3Car(Clone)":
                 deaths[2]++;
                 break;
-            case "Player4Car":
+		case "Player4Car(Clone)":
                 deaths[3]++;
                 break;
         }
