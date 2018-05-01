@@ -32,12 +32,12 @@ public class PickUpPower : MonoBehaviour {
 
 
                 //phone logic
-                col.GetComponentInChildren<canvasScript>().collected = true;             
-
-                if (col.GetComponentInChildren<canvasScript>().weaponenabled == true)
+               // col.GetComponent<carMovement>().cameraGet().GetComponentInChildren<canvasScript>().collected = true;
+                col.GetComponent<carMovement>().cameraGet().GetComponentInChildren<canvasScript>().collected = true;
+                if (col.GetComponent<carMovement>().cameraGet().GetComponentInChildren<canvasScript>().weaponenabled == true)
                 {
                     pos.GetComponent<AdvancedWeaponLogic>().AttachedWeapon(gameObject.tag);
-                    col.GetComponentInChildren<canvasScript>().weaponenabled = false;
+                    col.GetComponent<carMovement>().cameraGet().GetComponentInChildren<canvasScript>().weaponenabled = false;
                 }
             }
            
