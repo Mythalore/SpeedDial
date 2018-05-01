@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class carMovement : MonoBehaviour {
-
+    public GameObject camera;
     public float speed_modifier = 20;
     public float turn_modifier = 10;
 	public float threshold = 0;
@@ -125,4 +125,8 @@ public class carMovement : MonoBehaviour {
 
 		}
 	}
+    public GameObject cameraGet()
+    {
+        return camera;
+    }
 }
