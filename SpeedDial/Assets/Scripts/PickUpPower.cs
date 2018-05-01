@@ -32,7 +32,7 @@ public class PickUpPower : MonoBehaviour {
 
 
                 //phone logic
-                col.GetComponentInChildren<canvasScript>().collectable = true;             
+                col.GetComponentInChildren<canvasScript>().collected = true;             
 
                 if (col.GetComponentInChildren<canvasScript>().weaponenabled == true)
                 {
