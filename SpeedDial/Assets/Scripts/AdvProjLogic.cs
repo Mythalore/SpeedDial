@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class AdvProjLogic : MonoBehaviour {
-    private float speed = 30f;
+    private float speed = 1500f;
     private Rigidbody rb;
-    private Vector3 targetForProj = Vector3.zero;
     private Vector3 startPos;
     float lerpTime = 1.0f;
     float currentLerpTime;
     float moveDistance = 10f;
     private int Dmg;
+    private float timerDelta;
     // Use this for initialization
     void Start()
     {
@@ -26,16 +26,14 @@ public class AdvProjLogic : MonoBehaviour {
         //{
         //    rb.velocity = transform.forward * speed;
         //}
-        if (transform.position != targetForProj && targetForProj != Vector3.zero)
-        {
-            currentLerpTime += Time.deltaTime;
-            if (currentLerpTime > lerpTime)
-            {
-                currentLerpTime = lerpTime;
-            }
-            float perc = currentLerpTime / lerpTime;
-            transform.position = Vector3.Lerp(transform.position, targetForProj, perc);
-        }
+            //currentLerpTime += Time.deltaTime;
+            //if (currentLerpTime > lerpTime)
+            //{
+            //    currentLerpTime = lerpTime;
+            //}
+            //float perc = currentLerpTime / lerpTime;
+        timerDelta = Time.deltaTime * 10;
+        rb.velocity = (transform.forward * speed) * Time.fixedDeltaTime;
     }
     void OnCollisionEnter(Collision col)
     {
@@ -57,11 +55,6 @@ public class AdvProjLogic : MonoBehaviour {
                 //get component player health -= advancedweaponLogicscript.weaponDamage?
             }
         }
-    }
-    public void setTarget(Vector3 target)
-    {
-        targetForProj = target;
-        print(target);
     }
     public void setDamage(int damage)
     {

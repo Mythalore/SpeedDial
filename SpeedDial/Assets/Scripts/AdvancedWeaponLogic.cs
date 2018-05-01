@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class AdvancedWeaponLogic : MonoBehaviour {
-    private int weaponUses;
+    public int weaponUses;
     private int weaponDamage;
     private float timer = 1.0f;
     public float timeBetweenShots = 0.0f;
@@ -35,7 +35,7 @@ public class AdvancedWeaponLogic : MonoBehaviour {
     public WeaponState weaponState;
 	// Use this for initialization
 	void Start () {
-        WpnTar = gameObject.transform.parent.transform.GetComponentInChildren<WeaponTargeting>();
+       // WpnTar = gameObject.transform.parent.transform.GetComponentInChildren<WeaponTargeting>();
         weaponUses = 0;
         weaponDamage = 0;
         timeBetweenShots = 0.0f;
@@ -69,45 +69,38 @@ public class AdvancedWeaponLogic : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (attachState == AttachState.WeaponAttached)
-        {
-            LookAttarget();
-        }
         if (Input.GetButton(Y) && attachState == AttachState.WeaponAttached)
         {
             timer += Time.deltaTime;
             if (timer >= timeBetweenShots)
             {
                 timer = 0.0f;
-                if (AttachedWeaponName == "Rocket" && WpnTar.closestPlayer != Vector3.zero)
+                if (AttachedWeaponName == "Rocket")
                     
                 {
                     var newBullet = Instantiate(rocketObj, gameObject.transform.position, gameObject.transform.rotation);
                     newBullet.transform.parent = gameObject.transform.parent;
                     newBullet.GetComponent<CapsuleCollider>().isTrigger = false;
-                    newBullet.GetComponent<AdvProjLogic>().setTarget(WpnTar.closestPlayer);
                     newBullet.GetComponent<AdvProjLogic>().setDamage(weaponDamage);
                     weaponUses--;
                 }
-                else if (AttachedWeaponName == "Joust" && WpnTar.closestPlayer != Vector3.zero)
+                else if (AttachedWeaponName == "Joust")
                 {
                     var newBullet = Instantiate(JoustPoleObj, gameObject.transform.position, gameObject.transform.rotation);
-                    newBullet.transform.parent = gameObject.transform.parent;
+                    //newBullet.transform.parent = gameObject.transform.parent;
                     newBullet.GetComponent<CapsuleCollider>().isTrigger = false;
                     newBullet.GetComponent<AdvProjLogic>().setDamage(weaponDamage);
-                    newBullet.GetComponent<AdvProjLogic>().setTarget(WpnTar.closestPlayer);
                     weaponUses--;
                 }
-                else if (AttachedWeaponName == "Laser" && WpnTar.closestPlayer != Vector3.zero)
+                else if (AttachedWeaponName == "Laser")
                 {
                     var newBullet = Instantiate(LaserObj, gameObject.transform.position, gameObject.transform.rotation);
-                    newBullet.transform.parent = gameObject.transform.parent;
+                    //newBullet.transform.parent = gameObject.transform.parent;
                     newBullet.GetComponent<CapsuleCollider>().isTrigger = false;
                     newBullet.GetComponent<AdvProjLogic>().setDamage(weaponDamage);
-                    newBullet.GetComponent<AdvProjLogic>().setTarget(WpnTar.closestPlayer);
                     weaponUses--;
                 }
-                if (weaponUses == 0)
+                if (weaponUses <= 0)
                 {
                     removeWeapon();
                 }
@@ -149,25 +142,10 @@ public class AdvancedWeaponLogic : MonoBehaviour {
     }
     private void removeWeapon()
     {
-        WpnTar.closestPlayer = Vector3.zero;
-        LookAttarget();
         attachState = AttachState.NoWeaponAttached;
         foreach (Transform child in transform)
         {
                 Destroy(child.gameObject);
-        }
-    }
-    private void LookAttarget()
-    {
-        if (WpnTar.closestPlayer != Vector3.zero)
-        {
-            line.SetPosition(0, transform.position);
-            line.SetPosition(1, WpnTar.closestPlayer);
-        }
-        else
-        {
-            line.SetPosition(0, Vector3.zero);
-            line.SetPosition(1, Vector3.zero);
         }
     }
     public void setAttached()
