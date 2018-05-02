@@ -610,7 +610,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1256964880324754}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.02999878, y: 2.6300004, z: -10.889999}
+  m_LocalPosition: {x: 0.02999878, y: 0.8999996, z: -0.18999958}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224111626770823846}
@@ -678,7 +678,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1534973619968798}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.73, z: -13.73}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4128341808880626}
@@ -1854,7 +1854,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb2624268b917bd4a96d842f60558e4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collectable: 0
+  collected: 0
   canvas: {fileID: 223075743846436576}
   phone: {fileID: 114258132504928522}
   phoneanim: {fileID: 95504252058147948}
