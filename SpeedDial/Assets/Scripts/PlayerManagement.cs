@@ -135,7 +135,7 @@ public class PlayerManagement : MonoBehaviour {
             Destroy(canvas);
             if (scene.name == "Lobby")
             {
-                if (playerCount >= 1)
+                if (playerCount > 1)
                 {
                     SceneManager.LoadScene(2);
                    
@@ -144,7 +144,7 @@ public class PlayerManagement : MonoBehaviour {
             }
             else
             {
-                SceneManager.LoadScene(1);
+                //SceneManager.LoadScene(1);
             }
         }
 		
@@ -183,7 +183,7 @@ public class PlayerManagement : MonoBehaviour {
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         Scene scene1 = SceneManager.GetActiveScene();
-        if (scene.name != "Lobby" && scene.name != "Menu")
+        if (scene.name != "Lobby" && scene.name != "Menu" && scene.name != "WinScene")
         {
             player1Spawn = null;
             player2Spawn = null;

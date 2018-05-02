@@ -12,7 +12,7 @@ public class TimedExplosion : MonoBehaviour
     private AudioSource source;
     private bool exploding = false;
     private List<GameObject> players = new List<GameObject>(4);
-
+    
 	// Use this for initialization
 	void Start () {
 		explosion = gameObject.GetComponentInChildren<ParticleSystem> ();
@@ -27,17 +27,19 @@ public class TimedExplosion : MonoBehaviour
 
     void OnCollisionEnter(Collision col)
     {
-        if(col.gameObject.CompareTag("Player1"))
-        {           
-			StartCoroutine(Explode ());
+        if (!exploding)
+        {
+            if (col.gameObject.CompareTag("Player1") || col.gameObject.CompareTag("Player2") || col.gameObject.CompareTag("Player3") || col.gameObject.CompareTag("Player4"))
+            {
+                StartCoroutine(Explode());
+            }
         }
-
     }
 
     void OnTriggerStay(Collider col)
     {
-        
-        if (col.gameObject.CompareTag("Player1"))
+
+        if (col.gameObject.CompareTag("Player1") || col.gameObject.CompareTag("Player2") || col.gameObject.CompareTag("Player3") || col.gameObject.CompareTag("Player4"))
         {                            
             if(!players.Contains(col.gameObject))
             {
@@ -68,7 +70,7 @@ public class TimedExplosion : MonoBehaviour
             dir = dir.normalized;
             otherRig = player.gameObject.GetComponent<Rigidbody>();
             otherRig.AddForce(dir * explode_force, ForceMode.Impulse);
-            //DO DAMAGE
+            player.GetComponent<Damage>().TakeDamage(20, "");
         }
     }
 }

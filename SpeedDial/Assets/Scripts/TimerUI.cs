@@ -20,7 +20,7 @@ public class TimerUI : MonoBehaviour {
     private int p3Score;
     private int p4Score;
 
-    private Vector3 offset = new Vector3(0, 0.1f, 0);
+    public Vector3 offset = new Vector3(0.08f, 0.1f, 0);
     private int[] score = new int[4];
     private int[] deaths = new int[4];
 
@@ -34,16 +34,16 @@ public class TimerUI : MonoBehaviour {
 
     public GameObject[] player;
 
-    public int winner_num = 0;
+    public int winner_num = -1;
     // Use this for initialization
     void Start () {
         timer = 120;
         crown = GameObject.Find("Crown");
         playerManager = GameObject.Find("PlayerManager");
-        player[0] = GameObject.Find("Player1Car");
-        player[1] = GameObject.Find("Player2Car");
-        player[2] = GameObject.Find("Player3Car");
-        player[3] = GameObject.Find("Player4Car");
+        player[0] = GameObject.Find("Player1Car(Clone)");
+        player[1] = GameObject.Find("Player2Car(Clone)");
+        player[2] = GameObject.Find("Player3Car(Clone)");
+        player[3] = GameObject.Find("Player4Car(Clone)");
     }
 
     // Update is called once per frame
@@ -65,9 +65,9 @@ public class TimerUI : MonoBehaviour {
        
         for(int i = 0; i < score.Length; i++)
         {
-            if(score[i] > winner_num)
+            if(score[i] > winner_num && score[i] != 0)
             {
-                winner_num = i;
+                winner_num = i+1;
                 print(winner_num);
 
             }
@@ -75,11 +75,19 @@ public class TimerUI : MonoBehaviour {
 
         if(timer <= 0)
         {
+            
             playerManager.GetComponent<PlayerManagement>().PlayerRankings(winner_num);
             SceneManager.LoadScene(3);
         }
 
-        crown.transform.parent = player[winner_num].transform;       
+        if(winner_num != -1)
+        {
+           // crown.transform.parent = player[winner_num].transform;
+            //crown.transform.position = player[winner_num].transform.position + offset;      
+
+        }
+
+        
           
     }
 
@@ -88,16 +96,16 @@ public class TimerUI : MonoBehaviour {
     {
         switch(_playerName)
         {
-            case "Player1Car":
+		case "Player1Car(Clone)":
                 score[0]++;
                 break;
-            case "Player2Car":
+		case "Player2Car(Clone)":
                 score[1]++;
                 break;
-            case "Player3Car":
+		case "Player3Car(Clone)":
                 score[2]++;
                 break;
-            case "Player4Car":
+		case "Player4Car(Clone)":
                 score[3]++;
                 break;
         }
@@ -107,16 +115,16 @@ public class TimerUI : MonoBehaviour {
     {
         switch (_playerName)
         {
-            case "Player1Car":
+		case "Player1Car(Clone)":
                 deaths[0]++;
                 break;
-            case "Player2Car":
+		case "Player2Car(Clone)":
                 deaths[1]++;
                 break;
-            case "Player3Car":
+		case "Player3Car(Clone)":
                 deaths[2]++;
                 break;
-            case "Player4Car":
+		case "Player4Car(Clone)":
                 deaths[3]++;
                 break;
         }

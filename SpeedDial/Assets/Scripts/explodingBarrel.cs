@@ -9,7 +9,7 @@ public class explodingBarrel : MonoBehaviour {
     private AudioSource source;
     public float explode_force = 10.0f;
     private Mesh mesh;
-
+    private bool exploding = false;
 
 	// Use this for initialization
 	void Start () {
@@ -26,14 +26,20 @@ public class explodingBarrel : MonoBehaviour {
 
     void OnCollisionEnter(Collision col)
     {
-        if(col.gameObject.CompareTag("Player1"))
+        
+        if(col.gameObject.CompareTag("Player1") || col.gameObject.CompareTag("Player2") || col.gameObject.CompareTag("Player3") || col.gameObject.CompareTag("Player4"))
         {
             Vector3 dir = col.contacts[0].point - transform.position;
             dir = dir.normalized;
             otherRig = col.gameObject.GetComponent < Rigidbody >();
             otherRig.AddForce(dir*explode_force, ForceMode.Impulse);
 			StartCoroutine(Explode ());
+            exploding = true;
+            col.gameObject.GetComponent<Damage>().TakeDamage(20, "");
+
         }
+
+        
 
     }
 
@@ -44,14 +50,13 @@ public class explodingBarrel : MonoBehaviour {
         //DO DAMAGE
 		explosion.Play ();
         source.Play();
-        Destroy(mesh);
+        Instantiate(brokenBarrel);
         if(brokenBarrel.transform.position != transform.position)
         {
             brokenBarrel.transform.SetPositionAndRotation(gameObject.transform.position, gameObject.transform.rotation);
         }
-        Instantiate(brokenBarrel);
 		//explosion.enabled = true;
-		yield return new WaitForSeconds (0.2f);
+		yield return new WaitForSeconds (0.3f);
 		Destroy (gameObject);
 	}
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class carMovement : MonoBehaviour {
-
+    public GameObject camera;
     public float speed_modifier = 20;
     public float turn_modifier = 10;
 	public float threshold = 0;
@@ -19,7 +19,7 @@ public class carMovement : MonoBehaviour {
     //	bool grounded = false;
     public GameObject[] skidTrails;
     public bool being_boosted = false;
-
+	public float timerDelta;
 
     private string power_string = "";
     private string turn_string = "";
@@ -31,7 +31,7 @@ public class carMovement : MonoBehaviour {
         carRigidbody = GetComponent<Rigidbody>();
 		default_speed = speed_modifier;
         autobounce = gameObject.GetComponent<autobounce>();
-        turn_modifier = 40;
+        turn_modifier = 60;
         if(gameObject.tag == "Player1")
         {
             turn_string = "P1Turn";
@@ -63,27 +63,29 @@ public class carMovement : MonoBehaviour {
 	{
         MoveCar();
 		AddBoost ();
+		timerDelta = Time.deltaTime * 50;
     }
 
 
     void MoveCar()
     {
+		
         if (autobounce.grounded)
         {
             //gravity_modifier *= 0.5f;
-            powerInput = -Input.GetAxis(power_string) * speed_modifier;
-            turnInput = Input.GetAxis(turn_string) * turn_modifier;
+			powerInput = (-Input.GetAxis(power_string) * speed_modifier) * timerDelta;
+			turnInput = (Input.GetAxis(turn_string) * turn_modifier) * timerDelta;
             for(int i = 0; i < skidTrails.Length; i++)
             {
                 skidTrails[i].SetActive(true);
             }
-            carRigidbody.AddRelativeForce(0f, 0f, powerInput, ForceMode.Acceleration);
-            carRigidbody.AddRelativeTorque(0f, turnInput, 0f, ForceMode.Force);
+			carRigidbody.AddRelativeForce(0f, 0f, powerInput, ForceMode.Acceleration);
+			carRigidbody.AddRelativeTorque(0f, turnInput, 0f, ForceMode.Force);
         }
         else
         {
             
-            turnInput *= 0.5f;
+			turnInput *= 0.5f* timerDelta;
             for (int i = 0; i < skidTrails.Length; i++)
             {
                 skidTrails[i].SetActive(false);
@@ -123,4 +125,8 @@ public class carMovement : MonoBehaviour {
 
 		}
 	}
+    public GameObject cameraGet()
+    {
+        return camera;
+    }
 }

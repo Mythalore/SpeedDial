@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Harry.unity
     guid: 3765c3c21f594b943aa8cf873201d04d
+  - enabled: 0
+    path: Assets/Scenes/Tim.unity
+    guid: 9088fcab4017a1042bf8376f9c287f4b
   - enabled: 1
     path: Assets/Scenes/WinScene.unity
     guid: a8ec31c2032053d48b48c63b7469fa44

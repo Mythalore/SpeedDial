@@ -87,22 +87,4 @@ public class Damage : MonoBehaviour
         explosion.SetActive(false);
 
     }
-
-    void OnTriggerEnter(Collider col)
-    {
-
-        //print("entered");
-        //switch (col.gameObject.tag)
-        //{
-        //    case "BasicBullet":
-        //        print("taking 2 damage");
-        //        TakeDamage(2);
-        //        break;
-        //    case "SpecialWeapon":
-        //        TakeDamage(40);
-        //        break;
-        //    default:
-        //        break;
-        //}
-    }
 }

@@ -6,7 +6,6 @@ public class PickUpPower : MonoBehaviour {
     // Use this for initialization
     private string weaponTag;
 
-
     void Start () {
 
 
@@ -15,7 +14,8 @@ public class PickUpPower : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+        transform.localRotation = new Quaternion(transform.rotation.x, transform.parent.localRotation.y, transform.parent.localRotation.z, transform.parent.localRotation.w);
+        transform.position = transform.parent.position;
 	}
     void OnTriggerEnter(Collider col)
     {
@@ -32,16 +32,15 @@ public class PickUpPower : MonoBehaviour {
 
 
                 //phone logic
-                col.GetComponentInChildren<canvasScript>().collectable = true;             
-
-                if (col.GetComponentInChildren<canvasScript>().weaponenabled == true)
+               // col.GetComponent<carMovement>().cameraGet().GetComponentInChildren<canvasScript>().collected = true;
+                col.GetComponent<carMovement>().cameraGet().GetComponentInChildren<canvasScript>().collected = true;
+                if (col.GetComponent<carMovement>().cameraGet().GetComponentInChildren<canvasScript>().weaponenabled == true)
                 {
                     pos.GetComponent<AdvancedWeaponLogic>().AttachedWeapon(gameObject.tag);
-                    col.GetComponentInChildren<canvasScript>().weaponenabled = false;
+                    col.GetComponent<carMovement>().cameraGet().GetComponentInChildren<canvasScript>().weaponenabled = false;
                 }
             }
-            
-			Destroy (gameObject);
+           
         }
 
     }

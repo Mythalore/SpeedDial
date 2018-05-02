@@ -65,7 +65,7 @@ public class autobounce : MonoBehaviour {
         {
             StartCoroutine(flipTimer(Vector3.zero));
         }
-        if (Input.GetButtonDown(right_bumper) && Input.GetButtonDown(aButton))
+        if (Input.GetButtonDown(right_bumper))
         {
             print("debug flip");
             StartCoroutine(flipTimer(start_pos));
@@ -85,7 +85,7 @@ public class autobounce : MonoBehaviour {
 
     IEnumerator flipTimer(Vector3 _pos )
     {
-        yield return new WaitForSecondsRealtime(3.0f);
+        yield return new WaitForSecondsRealtime(1.0f);
         if(_pos != Vector3.zero)
         {
             flipCar(_pos);
